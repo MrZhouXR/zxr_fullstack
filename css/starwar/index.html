@@ -5,8 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>星球大战</title>
     <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
         body{
             background: url("./images/bg.jpg");
+        }
+        img{
+            width: 100%;
+        }
+        .starwars-demo{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 17em;
+            height: 34em;
+            transform: translate(-50%,-50%);
+            perspective: 800px;
+            transform-style: preserve-3d;
+        }
+        .star{
+            position: relative;
+            top: 6em;
+            animation: star 10s ease-out infinite ;
+        }
+        @keyframes star{
+            0%{
+                opacity: 0;
+            }
+            33%{
+                opacity: 1;
+                transform: scale(1.5);
+            }
+            66%{
+                opacity: 1;
+                transform: scale(1);
+            }
+            100%{
+                opacity: 0;
+                transform: translateZ(400em);
+            }
+        }
+        .wars{
+            position: absolute;
+            top: 20em;
+            animation: wars 10s ease-out infinite;
+        }
+        @keyframes wars{
+            0%{
+                opacity: 0;
+            }
+            33%{
+                opacity: 1;
+                transform: scale(1.5);
+            }
+            66%{
+                opacity: 1;
+                transform: scale(1);
+            }
+            100%{
+                opacity: 0;
+                transform: translateZ(400em);
+            }
         }
     </style>
 </head>
@@ -14,7 +75,61 @@
     <div class="starwars-demo">
         <img src="./images/star.svg" class="star">
         <img src="./images/wars.svg" class="wars">
-    </div>
-    <!-- .starwars-demo>img[url="./images/.svg"]*2                 -->
+    </div>  
+    <!-- <div id="anony-time">
+        <ul class="time-list">
+            <li>
+                <a href="https://www.douban.com" class="cover-audio-new"><img src="./images/.jpg" alt=""></a>
+                <a href="" class="title"></a>
+                <span class="type"></span>
+            </li>
+            <li>
+                <a href="https://www.douban.com" class="cover-audio-new"><img src="./images/.jpg" alt=""></a>
+                <a href="" class="title"></a>
+                <span class="type"></span>
+            </li>
+            <li>
+                <a href="https://www.douban.com" class="cover-audio-new"><img src="./images/.jpg" alt=""></a>
+                <a href="" class="title"></a>
+                <span class="type"></span>
+            </li>
+            <li>
+                <a href="https://www.douban.com" class="cover-audio-new"><img src="./images/.jpg" alt=""></a>
+                <a href="" class="title"></a>
+                <span class="type"></span>
+            </li>
+            <li>
+                <a href="https://www.douban.com" class="cover-audio-new"><img src="./images/.jpg" alt=""></a>
+                <a href="" class="title"></a>
+                <span class="type"></span>
+            </li>
+            <li>
+                <a href="https://www.douban.com" class="cover-audio-new"><img src="./images/.jpg" alt=""></a>
+                <a href="" class="title"></a>
+                <span class="type"></span>
+            </li>
+            <li>
+                <a href="https://www.douban.com" class="cover-audio-new"><img src="./images/.jpg" alt=""></a>
+                <a href="" class="title"></a>
+                <span class="type"></span>
+            </li>
+            <li>
+                <a href="https://www.douban.com" class="cover-audio-new"><img src="./images/.jpg" alt=""></a>
+                <a href="" class="title"></a>
+                <span class="type"></span>
+            </li>
+            <li>
+                <a href="https://www.douban.com" class="cover-audio-new"><img src="./images/.jpg" alt=""></a>
+                <a href="" class="title"></a>
+                <span class="type"></span>
+            </li>
+            <li>
+                <a href="https://www.douban.com" class="cover-audio-new"><img src="./images/.jpg" alt=""></a>
+                <a href="" class="title"></a>
+                <span class="type"></span>
+            </li>
+        </ul>
+    </div>        -->
+
 </body> 
 </html>
