@@ -1,0 +1,202 @@
+body{
+    margin: 0px;
+    background: pink;
+}
+.container{
+    width: 232px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 0;
+}
+.ball{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    border-radius: 50%;
+    border: 8px solid #000;
+    background: #fff;
+    display: inline-block;
+}
+.face{
+    width: 70px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 30px;
+}
+.face::before{
+    content: "";
+    width: 18px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 0, 106, 0.849);
+    position: absolute;
+    right: -8px;
+    top: 15px;
+}
+.face::after{
+    content: "";
+    width: 18px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255, 0, 106, 0.849);
+    position: absolute;
+    left: -5px;
+    top: 15px;
+}
+.eye{
+    width: 15px;
+    height: 14px;
+    border-radius: 50%;
+    border-bottom: 5px solid #000;
+    position: absolute;
+}
+.eye-l{
+    left: 10px;
+}
+.eye-r{
+    right: 5px;
+}
+.mouth{
+    width: 30px;
+    height: 14px;
+    border-radius: 50%;
+    border-bottom: 5px solid red;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    margin: 0 auto;
+    transform: translate(3px);
+}
+#ball-l{
+    animation: close 4s ease infinite;
+    z-index: 1;
+}
+@keyframes close{
+    0%{
+        transform: translate(0) ;
+    }
+    /* 10%{
+        transform: translate(0px) ;
+    }
+    20%{
+        transform: translate(0px) ;
+    } */
+    40%{
+        transform: translate(10px);
+    }
+    100%{
+        transform: translate(0);
+    }
+}
+.face-l{
+    animation: face 4s ease infinite;
+}
+@keyframes face{
+    0%{
+        transform: translate(0) rotate(0);
+    }
+    20%{
+        transform: translate(5px) rotate(-2deg);
+    }
+    30%{
+        transform: translate(0) rotate(0);
+    }
+    50%{
+        transform: translate(5px) rotate(-2deg);
+    }
+    100%{
+        transform: translate(0) rotate(0);
+    }
+}
+.face-r{
+    left: 0;
+    top: 37px;
+}
+.face-r::before{
+    width: 10px;
+    height: 10px;
+}
+.face-r:after{
+    width: 10px;
+    height: 10px;
+    left: 5px;
+}
+.eye-r-p{
+    border-top: 5px solid #000;
+    border-bottom: none;
+}
+.kiss-m{
+    position: absolute;
+    left: 20px;
+    top: 22px;
+    opacity: 0;
+    animation: kiss-m 4s ease infinite;
+}
+.kiss{
+    width: 13px;
+    height: 10px;
+    border-radius: 50%;
+    border-left: 5px solid red;
+}
+#ball-r{
+    animation: kiss 4s ease infinite;
+}
+@keyframes kiss{
+    40%{ 
+        transform: translate(0);
+    }
+    50%{
+        transform: translate(30px) rotateZ(20deg);
+    }
+    60%{
+        transform: translate(-32px);
+    }
+    67%{
+        transform: translate(-32px);
+    }
+    77%{
+        transform: translate(0);
+    }
+}
+
+.mouth-r{
+    animation: mouth-m 4s ease infinite;
+}
+@keyframes mouth-m{
+    0%{
+        opacity: 1;
+    }
+    54.9%{
+        opacity: 1;
+    }
+    55%{
+        opacity: 0;
+    }
+    66%{
+        opacity: 0;
+    }
+    67%{
+        opacity: 1;
+    }
+}
+@keyframes kiss-m{
+    0%{
+        opacity: 0;
+    }
+    54.9%{
+        opacity: 0;
+    }
+    55%{
+        opacity: 1;
+    }
+    66%{
+        opacity: 1;
+    }
+    66.1%{
+        opacity: 0;
+    }
+}
