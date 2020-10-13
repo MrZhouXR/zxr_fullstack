@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.movie {
+  width: 100%;
+}
+.movie-head {
+  width: 100%;
+  height: 68px;
+  line-height: 68px;
+  background-color: #1e2025;
+  color: #fff;
+  padding: 0 10px;
+  box-sizing: border-box;
+  display: flex;
+}
+.movie-head .iconfont {
+  width: 16px;
+}
+.movie-head .title {
+  flex: 1;
+}
