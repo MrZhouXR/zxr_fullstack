@@ -2,8 +2,14 @@
   margin: 0;
   padding: 0;
 }
+ul li {
+  list-style: none;
+}
 .movie {
   width: 100%;
+}
+.movie #toast {
+  display: none;
 }
 .movie-head {
   width: 100%;
@@ -20,4 +26,213 @@
 }
 .movie-head .title {
   flex: 1;
+  text-align: center;
+}
+.movie-info {
+  padding: 10px;
+  background-color: #1e2025;
+}
+.movie-info_desc {
+  width: 100%;
+  display: flex;
+}
+.movie-info_desc .info-pic {
+  width: 122px;
+  height: 185px;
+  overflow: hidden;
+}
+.movie-info_desc .info-pic img {
+  width: 100%;
+}
+.movie-info_desc .info-container {
+  flex: 1;
+  color: #9b9da2;
+  margin-left: 10px;
+  font-size: 15px;
+}
+.movie-info_desc .info-container .name {
+  color: #fff;
+  font-size: 24px;
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+}
+.movie-info_desc .info-container .type span {
+  width: 50px;
+  height: 18px;
+  display: inline-block;
+  background: url("https://s0.meituan.net/bs/myfe/canary/file/asgard/images/movie/movie-tag-2DIMAX.png");
+  background-size: cover;
+  vertical-align: middle;
+}
+.movie-info_desc .info-container .btn-wrap {
+  display: flex;
+  margin-top: 10px;
+}
+.movie-info_desc .info-container .btn-wrap .flex {
+  flex: 1;
+  height: 32px;
+  background: #58575d;
+  line-height: 32px;
+  border-radius: 5px;
+  text-align: center;
+  margin-right: 10px;
+  color: #fff;
+}
+.movie-info_desc .info-container .btn-wrap .flex:first:child {
+  margin-left: 10px;
+}
+.movie-info_desc .info-container .btn-wrap .flex .iconfont {
+  font-size: 14px;
+}
+.movie-info_rate {
+  background-color: #16151b;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 15px;
+}
+.movie-info_rate .rate-title {
+  display: flex;
+  justify-content: space-between;
+}
+.movie-info_rate .rate-title_left {
+  color: #fff;
+}
+.movie-info_rate .rate-title_left .icon-maoyan1 {
+  color: #f00;
+}
+.movie-info_rate .rate-title_right {
+  color: #69686e;
+}
+.movie-info_rate .rate-detail {
+  display: flex;
+}
+.movie-info_rate .rate-detail_left {
+  flex: 454;
+  display: flex;
+}
+.movie-info_rate .rate-detail_left .grade {
+  text-align: center;
+}
+.movie-info_rate .rate-detail_left .grade h2 {
+  color: #ff8a00;
+}
+.movie-info_rate .rate-detail_left .grade p {
+  color: #69686e;
+}
+.movie-info_rate .rate-detail_left .star {
+  display: flex;
+  align-items: center;
+  text-align: right;
+}
+.movie-info_rate .rate-detail_left .star .list {
+  display: flex;
+  margin: 0 2px 2px 0;
+  align-items: center;
+}
+.movie-info_rate .rate-detail_left .star .star-num {
+  font-size: 0;
+  width: 50px;
+}
+.movie-info_rate .rate-detail_left .star img {
+  width: 10px;
+  height: 10px;
+}
+.movie-info_rate .rate-detail_left .star .percent {
+  width: 78px;
+  height: 4px;
+  background: #252528;
+  position: relative;
+}
+.movie-info_rate .rate-detail_left .star .percent .percent-val {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: #ff8a00;
+  width: 80%;
+}
+.movie-info_rate .rate-detail_right {
+  flex: 266;
+  display: flex;
+  align-items: center;
+}
+.movie-info_rate .rate-detail_right img {
+  height: 46px;
+}
+.movie-desc {
+  padding: 15px;
+}
+.movie-desc .line-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow: hidden;
+}
+.movie-desc .arrow {
+  text-align: center;
+  font-size: 16px;
+}
+.movie-desc .arrow .iconfont {
+  transform: rotateZ(0deg);
+  display: block;
+  transition: all 1s ease;
+}
+.movie-desc .arrow .up {
+  transform: rotateZ(180deg);
+  display: block;
+}
+.movie .movie-actor {
+  background: #f6f6f6;
+}
+.movie .movie-actor .actor-title {
+  color: #000;
+  font-size: 15px;
+  display: flex;
+  margin-left: 8px;
+}
+.movie .movie-actor .actor-list {
+  margin-top: 0.22rem;
+}
+.movie .movie-actor .actor-list ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow-x: scroll;
+}
+.movie .movie-actor .actor-list ul li {
+  display: list-item;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+.movie .movie-actor .actor-list ul li a {
+  text-decoration: none;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 77px;
+}
+.movie .movie-actor .actor-list ul li a img {
+  width: 77px;
+  height: 100px;
+  display: block;
+}
+.movie .movie-actor .actor-list ul li a span {
+  font-size: 13px;
+  color: #232323;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+.movie .movie-actor .actor-list ul li a span.name {
+  color: #232323;
+}
+.movie .movie-actor .actor-list ul li a span.role {
+  color: #949494;
 }

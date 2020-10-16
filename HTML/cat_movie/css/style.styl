@@ -1,8 +1,12 @@
 *
     margin 0
     padding 0
+ul li
+    list-style: none
 .movie
     width 100%
+    #toast
+        display: none
     &-head 
         width 100%
         height 68px
@@ -16,3 +20,182 @@
             width 16px
         .title
             flex: 1
+            text-align center
+    &-info
+        padding 10px
+        background-color #1e2025
+        &_desc
+            width 100%
+            display: flex
+            .info-pic
+                width 122px
+                height 185px
+                overflow hidden
+                img 
+                    width 100%
+            .info-container
+                flex: 1
+                color: #9b9da2
+                margin-left 10px
+                font-size: 15px
+                .name
+                    color: #ffffff
+                    font-size: 24px
+                    font-family Arial,sans-serif
+                    font-weight: normal
+                .type
+                    span 
+                        width 50px
+                        height 18px
+                        display inline-block
+                        background url(https://s0.meituan.net/bs/myfe/canary/file/asgard/images/movie/movie-tag-2DIMAX.png)
+                        background-size cover
+                        vertical-align middle
+                .btn-wrap
+                    display flex
+                    margin-top 10px
+                    .flex
+                        flex 1
+                        height 32px
+                        background #58575d
+                        line-height: 32px
+                        border-radius 5px
+                        text-align: center
+                        margin-right:  10px
+                        color: #ffffff
+                        &:first:child
+                            margin-left 10px
+                        .iconfont
+                            font-size: 14px
+        &_rate
+            background-color #16151b
+            padding 10px
+            border-radius 4px
+            margin-top 15px
+            .rate-title
+                display flex
+                justify-content: space-between//用空白填充子元素
+                &_left
+                    color: #ffffff
+                    .icon-maoyan1
+                        color: red
+                &_right
+                    color #69686e
+            .rate-detail
+                display flex
+                &_left
+                    flex: 454
+                    display: flex
+                    .grade
+                        // margin-left: 15px
+                        text-align center
+                        h2
+                            color: #ff8a00
+                        p
+                            color #69686e
+                    .star
+                        // margin-right: 15px
+                        display flex
+                        align-items: center
+                        text-align right
+                        .list
+                            display: flex
+                            margin 0 2px 2px 0
+                            align-items center
+                        .star-num
+                            font-size: 0       
+                            width 50px                     
+                           img 
+                                width 10px
+                                height 10px
+                        .percent
+                            width 78px
+                            height 4px
+                            background #252528
+                            position relative
+                            .percent-val
+                                display: block
+                                position absolute
+                                left 0
+                                top 0
+                                height 100%
+                                background #ff8a00
+                                width 80%
+                &_right
+                    flex: 266
+                    display: flex
+                    align-items center
+                    img 
+                        height 46px
+    &-desc
+      padding 15px
+      .line-clamp
+        display  -webkit-box
+        -webkit-box-orient  vertical
+        -webkit-line-clamp  3
+        word-wrap break-word
+        word-break: break-all
+        overflow hidden
+      .arrow
+        text-align center
+        font-size: 16px
+        .iconfont
+          transform: rotateZ(0deg)
+          display: block
+          transition: all  1s ease 
+      .arrow .up
+        transform: rotateZ(180deg)
+        display: block
+    .movie-actor
+        background: #f6f6f6   
+        .actor-title
+            color #000
+            font-size: 15px
+            display: flex
+            margin-left 8px
+            // justify-content: space-between
+        .actor-list
+            margin-top .22rem
+            ul
+                list-style: none
+                display: flex
+                justify-content: flex-start//项目位于容器的开头
+                align-items: flex-start//元素位于容器的开头
+                overflow-x: scroll//内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容
+                li
+                    display: list-item
+                    flex-shrink: 0 //指定flex元素的收缩规则，收缩大小为0
+                    margin-left 8px
+                    a
+                        text-decoration none
+                        display: flex
+                        flex-flow: column
+                        justify-content center
+                        align-items center
+                        width 77px
+                        img 
+                            width 77px
+                            height 100px
+                            display: block
+                        span 
+                            font-size: 13px
+                            color: #232323
+                            text-align center
+                            text-overflow ellipsis//显示省略符号来代替被修剪的文本
+                            white-space: nowrap//文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。
+                            overflow hidden
+                            width 100%
+                            &.name
+                                color: #232323
+                            &.role
+                                color: #949494
+                                
+            
+                    
+
+                
+
+
+                    
+
+        
