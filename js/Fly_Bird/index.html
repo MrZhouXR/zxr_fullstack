@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fly_bird</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div id="wrapBg">
+        <!--开始的标题-->
+        <div id="headTitle">
+            <img src="img/bird0.png" alt="" id="headbird">
+        </div>
+        <!--开始按钮-->
+        <button id="startBtn"></button>
+        <div id="grassLand1"></div>
+        <div id="grassLand2"></div>
+    </div>
+
+    <script src="./js/index.js"></script>
+    <script src="./js/baseObj.js"></script>
+    <script src="./js/block.js"></script>
+
+
+
+    <script>
+        var wrapbg  = document.getElementById('wrapBg');
+        var headTitle = document.getElementById('headTitle');
+        var headbird = document.getElementById('headbird');
+
+        var blocksArr = [];
+        var blockDistance = baseObj.randomNum(120,350);
+
+        var Y = 3;
+        var index = 0;
+        var imgArr = ['img/bird0.png','img/bird1.png'];
+
+        var headWaveTimer = setInterval(wave,200);
+        //文字抖动动画
+        function wave(){
+            Y = Y * -1;
+            //设置该dom结构的top值
+            headTitle.style.top = headTitle.offsetTop + Y  + "px";
+            //设置bird图片路径
+            headbird.src = imgArr[index++];
+            if ( index > 1 ) {
+                index = 0;
+            }
+        }
+        
+
+        //草地动画
+        var grassLand1 = document.getElementById('grassLand1');
+        var grassLand2 = document.getElementById('grassLand2');
+        var landTimer = setInterval( landRun , 30 )
+        function landRun() {
+            if (grassLand1.offsetLeft <= -343){
+                grassLand1.style.left = "343px";
+            }
+            if (grassLand2.offsetLeft <= -343){
+                grassLand2.style.left = "343px";
+            }
+            grassLand1.style.left = grassLand1.offsetLeft - 3 + "px";
+            grassLand2.style.left = grassLand2.offsetLeft - 3 + "px";
+
+            //管道的移动
+            if (blocksArr.length)
+            {
+                for(var i = 0; i < blocksArr.length; i++){
+                    blocksArr[i].moveBlock();
+                    var x =baseObj.rectangleCrashExamine(blocksArr[i].downDivWrap, bird.div);//判断下管道和小鸟碰撞
+                    var y = baseObj.rectangleCrashExamine(blocksArr[i].upDivWrap, bird.div);//判断上管道和小鸟碰撞
+                    var z = bird.div.offsetTop >= 390;//判断小鸟和地是否碰撞
+                    if( x || y || z) {
+                        clearInterval(landTimer);//清除定时器
+                        bird.fallSpeed = 0;//小鸟速度为0
+                        wrapbg.onclick = null;//消除点击事件
+
+                    }
+                    
+                }
+            if (blocksArr[blocksArr.length - 1].downDivWrap.offsetLeft < (450 - blockDistance)) {
+						blockDistance = baseObj.randomNum(130,250);
+						var newBlock = new Block();
+						newBlock.createBlock();
+						blocksArr.push(newBlock);
+                }
+                if (blocksArr[0].downDivWrap.offsetLeft < -50) {
+						wrapbg.removeChild(blocksArr[0].downDivWrap);
+						wrapbg.removeChild(blocksArr[0].upDivWrap);
+						blocksArr.shift(blocksArr[0]);
+				}
+            }
+        }
+    
+
+        //开始按钮
+        var startBtn = document.getElementById('startBtn');
+        startBtn.onclick = function(){
+            headTitle.style.display = 'none' ;
+            startBtn.style.display = 'none' ;
+            clearInterval(headWaveTimer);
+
+            //插入小鸟到页面中
+            bird.showBird(wrapbg);
+            bird.flyBird();
+            bird.wingWave();
+
+
+            wrapbg.onclick = function() {
+                bird.fallSpeed = -8 ;
+                bird.div.style.top = bird.div.offsetTop + bird.fallSpeed-- + 'px';
+            }
+
+            //出现管道
+            var b = new Block();
+        
+            b.createBlock();
+            blocksArr.push(b);
+        }
+    
+    
+    
+    </script>
+</body>
+</html>
