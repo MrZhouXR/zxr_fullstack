@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>open-book</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            border: 0;
+            vertical-align: baseline;
+            box-sizing: border-box;
+        }
+        html{
+            height: 100%;
+        }
+        body{
+            height: 100%;
+            overflow: hidden;
+            color: #fff;
+            perspective: 1000;
+            -webkit-perspective: 1000;
+            background-color: #555555;
+            background-image: -webkit-linear-gradient(top,#333333,#999999);
+        }
+        .book{
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-top: -150px;
+            -webkit-transform: rotateX(60deg);
+            transform: rotateX(60deg);
+            user-select: none;
+        }
+        .page{
+            width: 300px;
+            height: 300px;
+            padding: 1em;
+            position: absolute;
+            left: 0;
+            top: 0;
+            text-indent: 2em;
+            overflow: hidden;
+        }
+        .front{
+            background-color: #d93e2b;
+        }
+        .back{
+            background-color: #fff;
+        }
+        .front-cover{
+            cursor: move;
+            transform: rotateY(0deg);
+            transform-origin: 0 50%;/*旋转的中心点*/
+        }
+        .front-cover .back{
+            background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602589340199&di=ac3b5e4365827282397a1c3ea3e026fa&imgtype=0&src=http%3A%2F%2Fd.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2Fe4dde71190ef76c6ac26b6319516fdfaaf516737.jpg
+);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            transform: translateZ(3px);
+        }
+        .book-cover .back{
+            transform: translateZ(-3px);
+        }
+        .p3d{
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;/* 设置当前效果为3d */
+        }
+        .flip{
+            transform: rotateY(180deg);
+        }
+        .shadow,.dino{
+            width: 196px;
+            height: 132px;
+            position: absolute;
+            left: 60px;
+            top: 60px;
+            transform-origin: 0 100%;
+        }
+        .dino{
+            background: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1602589786919&di=e09bc80b8d748fd873fa741b6a77bbc8&imgtype=0&src=http%3A%2F%2Fpics2.baidu.com%2Ffeed%2Fbd315c6034a85edf81702f204ba7a225dc54752a.jpeg%3Ftoken%3D40ea367f6b2ef995eaa6f5faf705a7d4
+);
+            background-size: cover;
+        }
+        .shadow{
+            background-color: rgba(0,0,0,0.5);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="book p3d">
+        <div class="book-cover p3d">
+            <div class="page back flip">
+
+            </div>
+            <div class="page front p3d">
+                <div class="shadow"></div>
+                <div class="dino"></div>
+            </div>
+        </div>
+        <div class="front-cover p3d">
+            <div class="page front flip p3d">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fermentum nisl quis nulla eleifend dignissim.Curabitur varius lobortis tincidunt. Maecenas gravida, nulla quis luctus imperdiet, ipsum nibh consectetur ante, in sodales massa tortor eget neque. Donec porta ligula massa, id sagittis est. Ut nisl tellus, faucibus nec feugiat ut, laoreet iaculis felis. Suspendisse ultrices mauris vel tellus suscipit commodo. Integer vitae tortor erat. Pellentesque non tempor nisi.
+                </p>
+            </div>
+            <div class="page back"></div>
+        </div>
+    </div>
+    <script>
+        (function(window , document){
+            var profiex = ['webkit', 'Moz' , 'ms' ,'o'],
+                book = document.querySelectorAll('.book')[0],
+                page = document.querySelectorAll('.front-cover')[0],
+                dino = document.querySelectorAll('.dino')[0],
+                shadow = document.querySelectorAll('.shadow')[0],
+                centerPoint = window.innerWidth / 2,
+                hold = false,
+                clamp = function(val, min, max) {
+                    return Math.max(min,Math.min(val,max));
+                },
+                pageSize = 300 ;
+
+            //鼠标按下的事件
+            page.onmousedown = function() {
+                hold = true;
+            }
+            //鼠标放开的事件
+            window.onmouseup = function() {
+                if(hold) {
+                    hold = false;
+                }
+            }
+
+            //在窗口跳转大小的时候执行的事件
+            window.onresize = function() {
+                centerPoint = window.innerWidth / 2;
+            }
+
+            //鼠标移动时候执行的事件
+            window.onmousemove = function(event) {
+                if ( !hold ){
+                    return;
+                }
+                var angle = clamp((centerPoint - event.pageX + pageSize) / pageSize * -90, -180, 0),
+                    i , j ;
+
+                for(i = 0, j = profiex.length; i < j; i++) {
+                    page.style[profiex[i] + 'Transform'] = `rotateY(${angle}deg)`;
+                    dino.style[profiex[i] + 'Transform'] = `rotateX(${angle / 2 + 40}deg)`;
+                    book.style[profiex[i] + 'Transform'] = `rotateX(${60 + angle / 8}deg)`;
+                    shadow.style[profiex[i] + 'Transform'] = `translateZ(1px) skewX(${angle / 8}deg)`
+                }
+            }
+
+        }) (window, document)
+    </script>
+</body>
+</html>
