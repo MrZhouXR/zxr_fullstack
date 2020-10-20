@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.bootcdn.net/ajax/libs/weui/2.3.0/style/weui.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styl/common.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- navbar -->
+    <div class="weui-navbar">
+        <div class="weui-navbar__item weui-bar__item_on">
+            热映
+        </div>
+        <div class="weui-navbar__item">
+            影院
+        </div>
+        <div class="weui-navbar__item">
+            待映
+        </div>
+        <div class="weui-navbar__item">
+            经典电影
+        </div>
+    </div>
+    <!-- List -->
+    
+    <!-- Panel -->
+    <div class="weui-panel__bd">
+       
+    </div>
+    <!-- Tabbar -->
+    <div class="weui-tab">
+        <!-- <div class="weui-tab__panel">
+
+        </div> -->
+        <div class="weui-tabbar">
+            <div class="weui-tabbar__item weui-bar__item_on">
+                <div style="display: inline-block; position: relative;">
+                    <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                </div>
+                <p class="weui-tabbar__label">电影/影院</p>
+            </div>
+            <div class="weui-tabbar__item">
+                <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                <p class="weui-tabbar__label">视频</p>
+            </div>
+            <div class="weui-tabbar__item">
+                <div style="display: inline-block; position: relative;">
+                    <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                </div>
+                <p class="weui-tabbar__label">小视频</p>
+            </div><div class="weui-tabbar__item">
+                <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                <p class="weui-tabbar__label">演出</p>
+            </div>
+            <div class="weui-tabbar__item">
+                <img src="./images/icon_tabbar.png" alt="" class="weui-tabbar__icon">
+                <p class="weui-tabbar__label">我</p>
+            </div>
+        </div>
+    </div>
+    <script src="./lib/template.js"></script>
+    <script>
+        var panel = document.querySelector('.weui-panel__bd')
+        fetch('./data/movie_list.json') 
+            .then(data => data.json)
+            .then(data => {
+                for(let movie of data){
+                    panel.innerHTML += getMovieInfo(movie)
+                }
+            })
+
+    </script>
+</body>
+</html>

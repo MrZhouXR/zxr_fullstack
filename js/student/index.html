@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentInfo</title>
+    <link rel="stylesheet" href="https://weui.io/style/weui.css">
+</head>
+<body>
+    <div class="weui-cells">
+        <a class="weui-cell  weui-cell_access" href="javascript:">
+            <div class="weui-cell__bd">
+                <p></p>
+            </div>
+            <div class="weui-cell__ft">
+            </div>
+        </a>
+        <a class="weui-cell  weui-cell_access" href="javascript:">
+            <div class="weui-cell__bd">
+            </div>
+            <div class="weui-cell__ft">
+            </div>
+        </a>
+    </div>
+    <script>
+        let xx = {
+            name : '潇潇',
+            hometown : '宜春',
+            isSingle : true 
+        };
+        let zxr = {
+            name : '周轩任' ,
+            hometown : '宜春',
+            isSingle : true 
+        };
+        let gj = {
+            name : '巩娟',
+            hometown : '甘肃'
+        };
+        let students = [xx,zxr];
+        let container = 
+            document.querySelector('.weui-cells');
+        students.push(gj);    
+        // students
+        //     .forEach
+        // es6
+        for (let student of students) {
+            console.log(student);
+            container.innerHTML += `
+            <a class="weui-cell  weui-cell_access" href="javascript:">
+                <div class="weui-cell__bd">
+                <p>${student.name} </p>
+                </div>
+                <div class="weui-cell__ft">
+                     ${student.hometown}
+                </div>
+            </a>
+            `;
+           
+        }
+
+
+
+    </script>
+</body>
+</html>

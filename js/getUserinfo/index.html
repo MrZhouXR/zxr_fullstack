@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="./1.js"> -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/weui/2.3.0/style/weui.min.css" rel="stylesheet">
+    <title>ts</title>
+</head>
+<body>
+   
+    <div class="weui-cells wp-users">
+
+    </div>    
+    <!-- 展示一个用户列表 -->
+    <script src="./user.js"></script>
+    
+    <script>
+        const usersEle = document.querySelector('.wp-users')
+        fetch('./users.json')
+            .then(data => data.json())
+            .then(data =>{
+                // console.log(data)
+                for (let user of data){
+                    usersEle.innerHTML += 
+                        getUserTemplate(user)
+                }
+            })
+    </script>
+</body>
+</html>

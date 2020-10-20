@@ -11,7 +11,10 @@
         //描述性很强的语言
         // 对象字面量
         class Flower{
-
+            constructor(flower_type,flower_num){
+                this.flower_type = flower_type;
+                this.flower_num = flower_num;
+            }
         }
         const zxr = {
             name: '周轩任',
@@ -35,8 +38,8 @@
         const xx = {
             name: '潇潇',
             sex: '女',
-            receiveFlower: function(flower){
-                console.log('收到了花');
+            receiveFlower: function(sender,flower){
+                console.log('收到了' + sender.name+ "送来的" + flower.flower_num + "朵" + flower.flower_type);
             }
         }
 
@@ -48,15 +51,15 @@
             receiveFlower: function(sender,flower){
                 if(sender.name == '周轩任'){
                     // console.log('男神，我们在一起吧');
-                    console.log('胖鹅，请帮我转送给:');
-                    pe.receiveFlower(sender,flower);
+                    console.log('胖鹅，请帮我转送给潇潇');
+                    xx.receiveFlower(zxr,flower);
                 }else{
                     console.log('收到了花');
                 }
             }
         }
 
-        zxr.sendFlower(xx);
+        zxr.sendFlower(pe);
         //高级代码
 
     </script>

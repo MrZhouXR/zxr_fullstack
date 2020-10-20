@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>懒加载</title>
+</head>
+<body>
+  <img class="image-item" src="" lazyload="true" data-original="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3913543344,4199636285&fm=26&gp=0.jpg" alt="">
+  <img class="image-item" src="" lazyload="true" data-original="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596604075107&di=286f82af00fabd4a8ff182d03b74b55d&imgtype=0&src=http%3A%2F%2Fimg.ewebweb.com%2Fuploads%2F20190403%2F16%2F1554278474-naSczQoyqu.jpg" alt="">
+  <img class="image-item" src="" lazyload="true" data-original="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596604109838&di=bfe6a47e206fea06335d61f9f98de213&imgtype=0&src=http%3A%2F%2Fpicture.ik123.com%2Fuploads%2Fallimg%2F170220%2F4-1f2201s123.jpg" alt="">
+  <img class="image-item" src="" lazyload="true" data-original="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596604075106&di=af02b6428893e78c565b361245ea7e9c&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2%2F5784bb7b24a77.jpg" alt="">
+  <img class="image-item" src="" lazyload="true" data-original="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596604128201&di=0e30513add79b947f722e55c2579427f&imgtype=0&src=http%3A%2F%2Fimg2.imgtn.bdimg.com%2Fit%2Fu%3D1040017257%2C2260225617%26fm%3D214%26gp%3D0.jpg" alt="">
+  <img class="image-item" src="" lazyload="true" data-original="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596604075106&di=92f2e7db0cc0f24237c37ab8eb3cee8d&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F7%2F53c74897f22cc.jpg" alt="">
+  <img class="image-item" src="" lazyload="true" data-original="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596604075106&di=f56c65c144f089bf701f68fd107cd194&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2Fc%2F57b67b4952234.jpg" alt="">
+  <img class="image-item" src="" lazyload="true" data-original="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2746890508,1411167354&fm=26&gp=0.jpg" alt="">
+  <img class="image-item" src="" lazyload="true" data-original="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596604075104&di=deed4308df89fa3501d7dc568722902b&imgtype=0&src=http%3A%2F%2Fimg8.zol.com.cn%2Fbbs%2Fupload%2F22199%2F22198209.jpg" alt="">
+  <img class="image-item" src="" lazyload="true" data-original="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596604075103&di=3c8420d74fd193154bfd4be77b2beb48&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F2017-11-29%2F5a1e130e127ef.jpg" alt="">
+  <img class="image-item" src="" lazyload="true" data-original="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596604075103&di=37f0084a35ce0ff91b2e28b10f145986&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F7%2F57edd4803ddc2.jpg" alt="">
+  <img class="image-item" src="" lazyload="true" data-original="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1225974369,1410483272&fm=26&gp=0.jpg" alt="">
+
+
+  <script>
+    var viewHeight = document.documentElement.clientHeight
+
+    function lazyload(){
+      var eles = document.querySelectorAll('img[data-original][lazyload]')
+      Array.prototype.forEach.call(eles,function(item, index){//赋予eles foreach方法
+        var rect = item.getBoundingClientRect()//拿到dom结构的几何信息
+        if (rect.bottom >= 0 && rect.top < viewHeight) {//判断是否在可视区域内
+          !function() {
+            var img = new Image()
+            img.src = item.dataset.original//获取http路径
+            img.onload = function() {
+              item.src = img.src
+            }
+            item.removeAttribute('data-original')//移除data-original
+            item.removeAttribute('lazyload')//移除lazyload
+
+          }()//自执行，两种方法(function(){ })()
+
+        }
+      })
+    }
+    lazyload()
+    document.addEventListener('scroll', lazyload)
+  </script>
+</body>
+</html>

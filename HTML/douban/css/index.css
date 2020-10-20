@@ -440,13 +440,10 @@ h2 {
   width: 100px;
   margin-right: 20px;
 }
-#anony-time a,
 .section-title a {
   color: #494949;
 }
-#anony-time a:link,
 .section-title a:link,
-#anony-time a:visited,
 .section-title a:visited {
   font-size: 24px;
 }
@@ -498,4 +495,167 @@ h2 {
   line-height: 1;
   margin-top: 10px;
   display: block;
+}
+#anony-movie a:link,
+#anony-movie a:visited {
+  color: #27a;
+}
+.side-links {
+  margin-bottom: 40px;
+}
+.side-links li {
+  position: relative;
+  margin-top: 5px;
+  font-size: 14px;
+}
+.apps-list ul {
+  margin-top: -15px;
+}
+.list {
+  font-size: 0;
+  letter-spacing: -0.31em;
+}
+.list li {
+  display: inline-block;
+  zoom: 1;
+  vertical-align: top;
+  width: 24.8%;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: normal;
+  word-spacing: normal;
+}
+.tags ul {
+  margin-top: -4px;
+}
+.tags li {
+  width: 4em;
+  margin-top: 4px;
+  text-align: left;
+}
+#anony-movie .movie-charts ol {
+  margin: 0;
+  padding: 0;
+}
+#anony-movie .movie-charts li {
+  margin-bottom: 6px;
+  padding-bottom: 5px;
+  list-style-type: decimal;
+  list-style-position: inside;
+  border-bottom: 1px solid #eaeaea;
+}
+#anony-movie .movie-charts li a {
+  margin-left: 5px;
+}
+#anony-movie .movie-list li {
+  margin-bottom: 20px;
+}
+#anony-movie .movie-list .pic {
+  height: 145px;
+  overflow: hidden;
+}
+#anony-movie .movie-list img {
+  width: 100px;
+}
+.list .pic {
+  margin-bottom: 10px;
+}
+.list .title {
+  line-height: 1.45;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+#anony-movie .movie-list .title a:link,
+#anony-movie .movie-list .title a:visited {
+  color: #333;
+}
+.rating {
+  margin-bottom: 4px;
+}
+.allstar20,
+.allstar40,
+.allstar35,
+.allstar45 {
+  display: inline-block;
+  zoom: 1;
+  width: 55px;
+  height: 11px;
+  margin: 0 3px 0 0;
+  overflow: hidden;
+  background: -webkit-image-set(url("https://img3.doubanio.com/f/shire/b8f4c3672ef81106701071831e22422a745d3b74/pics/rating_icons/ic_rating_s.png") 1x, url("https://img3.doubanio.com/f/shire/0147ca9efddcac80050854590d26bee587b008df/pics/rating_icons/ic_rating_s@2x.png") 2x) no-repeat;
+}
+.allstar20 {
+  background-position: 0 -66px;
+}
+.allstar40 {
+  background-position: 0 -22px;
+}
+.allstar35 {
+  background-position: 0 -33px;
+}
+.allstar45 {
+  background-position: 0 -11px;
+}
+.bn-link {
+  display: inline-block;
+  zoom: 1;
+  vertical-align: middle;
+  padding: 2px 10px;
+  border-radius: 2px;
+}
+#annoy-movie .bn-link:link,
+#annoy-movie .bn-link:visited {
+  background: #1c8bd0;
+  color: #fff;
+}
+#anony-group .section-tile a:link,
+#anony-group .section-tile a:visited {
+  color: #007982;
+}
+.cate {
+  margin-bottom: 10px;
+}
+.cate ul {
+  margin-left: -10px;
+}
+.cate ul li {
+  display: inline-block;
+  zoom: 1;
+  margin-left: 10px;
+}
+.cate .cate-label {
+  width: 100%;
+  margin-bottom: 2px;
+  font-size: 14px;
+  color: #333;
+}
+#anony-group .cate .cate-label a:link,
+#anony-group .cate .cate-label a:visited {
+  color: #333;
+}
+#anony-group .group-list ul {
+  margin-left: -30px;
+}
+#anony-group .group-list .pic {
+  float: left;
+  margin-right: 15px;
+}
+#anony-group .group-list li {
+  text-align: left;
+  width: 248px;
+  margin-left: 30px;
+  margin-top: 30px;
+  overflow: hidden;
+  zoom: 1;
+  color: #999;
+}
+.list .pic {
+  margin-bottom: 10px;
+}
+#anony-group a:link,
+#anony-group a:visited {
+  color: #017a85;
+}
+#anony-group a img {
+  width: 48px;
 }

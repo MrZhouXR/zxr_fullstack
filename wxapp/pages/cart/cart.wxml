@@ -3,9 +3,7 @@
   <view wx:if="{{hasList}}">
     <view class="cart-box">
       <view class="cart-list" wx:for="{{carts}}" wx:key="{{index}}">
-
         <icon type="circle" class="cart-pro-select" size="23"></icon>
-
         <navigator url="../detail/detail" class="cart-pro-goods">
           <image src="{{item.image}}" />
         </navigator>

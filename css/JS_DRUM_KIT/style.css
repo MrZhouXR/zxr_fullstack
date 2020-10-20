@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 10px;
+  background: url("https://img.36krcdn.com/20201012/v2_5431a27f30ea4cb5803afc5c1de131eb_img_jpg?x-oss-process=image/resize,m_mfit,w_600,h_400,limit_0/crop,w_600,h_400,g_center") bottom center;
+  background-size: cover;
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.keys {
+  display: flex;
+  flex: 1;
+  min-height: 100vh;
+  align-items: center /* 纵轴居中*/;
+  justify-content: center /*主轴居中*/;
+}
+.keys .key {
+  border: 0.4rem solid #000;
+  border-radius: 0.5rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem 0.5rem;
+  transition: all 0.07s ease;
+  width: 10rem;
+  text-align: center;
+  color: #fff;
+  background: rgba(0,0,0,0.4);
+  text-shadow: 0 0 0.5rem #000;
+}
+.keys .key div {
+  display: block;
+  font-size: 4rem;
+}
+.keys .key .sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: #ffc600;
+}

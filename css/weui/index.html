@@ -43,6 +43,31 @@
             background-color: #06ae56;
             color: #ffffff;
         }
+        .weui-loading {
+            width: 20px;
+            height: 20px;
+            background: url(./img/loading.png);
+            display: inline-block;
+            vertical-align: middle;
+            animation: weuiLoading 1s steps(12,end) infinite;
+            background-size: 100%;
+        }
+        @keyframes weuiLoading {
+            0% {
+                transform: rotate(0);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        .weui-btn_loading .weui-loading {
+            margin: -0.2em 0.34em 0 0 ;
+        }
+        .weui-btn_disabled {
+            color: rgba(0,0,0,2);
+            color: var(--weui-BTN-DISABLED-FONT-COLOR);
+            background-color: var(--weui-BTN-DEFAULT-BG);
+        }
     </style>
 </head>
 <body>
@@ -60,6 +85,13 @@
     class="weui-btn weui-btn_primary weui-btn_loading">
     <i class="weui-loading"></i>
     页面主操作</a>
+    <a href="" class="weui-btn weui-btn_disabled weui-btn_primary">页面主操作</a>
+
+
+
+
+
+
 
     <div class="weui-cells__groups weui-cells__groups_form">
         <!--Element BEM

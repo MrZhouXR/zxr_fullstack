@@ -1,0 +1,26 @@
+{
+  "errno": 0,
+  "data" :[
+            {
+              "src" : "http://p0.meituan.net/148.208/movie/202ea88abd2abf2aa1964487d61edab64556414.jpg",
+              "title":"我和我的家乡",
+              "score":"观众评9.3",
+              "actor":"主演: 葛优,黄渤,范伟",
+              "show":"今天67家影院放映826场"
+            },
+            {
+              "src" : "http://p1.meituan.net/148.208/movie/c16b0a68f95d884d428f339f8eacce834410200.jpg",
+              "title":"一点就到家",
+              "score":"观众评9.2",
+              "actor":"主演: 刘昊然,彭昱畅,尹昉",
+              "show":"今天66家影院放映408场"
+            },
+            {
+              "src" : "http://p0.meituan.net/148.208/movie/e00977359c9718949a7d1fff69f5baeb3782915.jpg",
+              "title":"姜子牙",
+              "score":"观众评8.3",
+              "actor":"主演: 郑希,杨凝,图特哈蒙",
+              "show":"今天67家影院放映367场"
+            }
+          ]
+}
