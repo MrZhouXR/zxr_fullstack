@@ -1,0 +1,109 @@
+<!--index.wxml-->
+
+<block>
+  <van-nav-bar title=""  left-text="发现 " >
+    <van-icon name="phone-o" slot="right" color="brown" size="20px">
+    </van-icon>
+    <van-icon name="bar-chart-o" slot="right" color="brown" size="20px">
+    </van-icon>
+  </van-nav-bar>
+</block>
+<block>
+  <van-search value="{{ value }}" 
+  placeholder="请输入搜索关键词" >
+  </van-search>
+</block>
+
+<block wx:for="{{products}}" wx:key = "index">
+<van-card
+  num=""
+  tag="手机"
+  price="{{item.price}} "
+  desc="手机颜色：{{item.color}} 浏览量：{{item.view}}"
+  title="{{item.title}}"
+  thumb="{{ item.image }}"
+>
+<div slot="tags">
+  <van-tag plain type="primary">手机</van-tag>
+  <van-tag plain type="primary">数码</van-tag>
+</div>
+<view slot="footer">
+  <van-stepper value="{{ 1 }}" bind:change="onChange" />
+</view>
+</van-card>
+
+<van-tabbar active="{{ active }}" bind:change="onChange">
+  <van-tabbar-item icon="search">发现</van-tabbar-item>
+  <van-tabbar-item icon="leeson">讲堂</van-tabbar-item>
+  <van-tabbar-item icon="fire-o">部落</van-tabbar-item>
+  <van-tabbar-item icon="study-o">学习</van-tabbar-item>
+  <van-tabbar-item icon="user-o">我的</van-tabbar-item>
+</van-tabbar>
+
+</block>
+
+
+
+
+
+
+<!-- <view class="container"> -->
+
+  <!-- 用户 openid -->
+  <!-- <view class="userinfo">
+    <button 
+      open-type="getUserInfo" 
+      bindgetuserinfo="onGetUserInfo"
+      class="userinfo-avatar"
+      style="background-image: url({{avatarUrl}})"
+      size="default"
+    ></button>
+    <view class="userinfo-nickname-wrapper">
+      <button class="userinfo-nickname" bindtap="onGetOpenid">点击获取 openid</button>
+    </view>
+  </view> -->
+
+
+  <!-- 上传图片 -->
+  <!-- <view class="uploader">
+    <view class="uploader-text" bindtap="doUpload">
+      <text>上传图片</text>
+    </view>
+    <view class="uploader-container" wx:if="{{imgUrl}}">
+      <image class="uploader-image" src="{{imgUrl}}" mode="aspectFit" bindtap="previewImg"></image>
+    </view>
+  </view> -->
+
+
+  <!-- 操作数据库 -->
+  <!-- <view class="uploader">
+    <navigator url="../databaseGuide/databaseGuide" open-type="navigate" class="uploader-text">
+      <text>前端操作数据库</text>
+    </navigator>
+  </view> -->
+
+  <!-- 即时通信 -->
+  <!-- <view class="uploader">
+    <navigator url="../im/im" open-type="navigate" class="uploader-text">
+      <text>即时通信 Demo</text>
+    </navigator>
+  </view> -->
+
+  <!-- 新建云函数 -->
+  <!-- <view class="uploader">
+    <navigator url="../addFunction/addFunction" open-type="navigate" class="uploader-text">
+      <text>快速新建云函数</text>
+    </navigator>
+  </view> -->
+
+  <!-- 云调用 -->
+  <!-- <view class="uploader">
+    <navigator url="../openapi/openapi" open-type="navigate" class="uploader-text">
+      <text>云调用</text>
+    </navigator>
+  </view> -->
+
+
+
+
+<!-- </view> --> 
