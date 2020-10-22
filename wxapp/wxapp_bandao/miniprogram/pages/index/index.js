@@ -6,7 +6,7 @@ const db = wx.cloud.database()
 const _ = db.command
 //table collection
 const productsCollection = db.collection('products')
-
+const photos = db.collection('photos')
 
 
 
@@ -15,6 +15,7 @@ const app = getApp()
 Page({
   data: {
     products: [],
+    photos: [],
     active:0,
     avatarUrl: './user-unlogin.png',
     userInfo: {},
@@ -28,6 +29,47 @@ Page({
     this.setData({ active: event.detail });
   },
 
+  upload:function () {
+    // console.log('111');
+    // 云开发， SQL ， weixin 给与小程序能力
+    // 在相机里选择
+    wx.chooseImage({
+      count: 9,
+      sizeType: ['original','compressed'],
+      sourceType: ['album','camera'],
+      success: res => {
+        // console.log(res);
+        const temFilePaths = res.tempFilePaths
+        for (let i = 0; i< temFilePaths.length; i++) {
+          let randString = 
+          + new Date() + '' + Math.floor(Math.random() * 1000000)
+          + '.png'
+          console.log(randString)
+          wx.cloud.uploadFile({
+            cloudPath: randString,
+            filePath: temFilePaths[i],
+            success: res => {
+              if (res.statusCode == 200){
+                photos.add({
+                  data: {
+                    image: res.fileID
+                  }
+                })
+                .then(res => {
+                  wx.showToast({
+                    title: '上传成功',
+                    icon: 'success'
+                  })
+                })
+              }
+              // console.log(res);
+            }
+          })
+        }
+      }
+    })
+  },
+
   onLoad: function() {
      productsCollection
       .get()
@@ -37,6 +79,14 @@ Page({
           products:res.data
         })
       })
+      photos
+        .get()
+        .then(res => {
+          // console.log(res);
+          this.setData({
+            photos: res.data
+          })
+        })
     if (!wx.cloud) {
       wx.redirectTo({
         url: '../chooseLib/chooseLib',
