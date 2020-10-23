@@ -21,13 +21,13 @@
         "selectedIconPath":"./images/plus-light.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/group/group",
         "text": "群组",
         "iconPath": "./images/group-dark.png",
         "selectedIconPath":"./images/group-light.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/personal/personal",
         "text": "我的",
         "iconPath": "./images/user-dark.png",
         "selectedIconPath":"./images/user-light.png"

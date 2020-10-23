@@ -1,4 +1,5 @@
 //index.js
+import Notify from '../../miniprogram_npm/@vant/weapp/notify/notify';
 const app = getApp()
 
 Page({
@@ -19,9 +20,55 @@ Page({
     }
     )
   },
-
-  onGroupNameChange: function() {
-
+  
+  // 创建一个群组
+  createGroup() {
+    const self = this
+    if (self.data.groupName === "") {
+      Notify({
+        message: '当前输入框不能为空',
+        duration: 1500,
+        selector: '#notify-selector',
+        background: '#dc3545'
+      });
+      self.setData({
+        newGroupModal: true
+      })
+    }
+    // 将groupName传到后端中
+    wx.cloud.callFunction({
+      name: 'createGroup',
+      data: {
+        groupName: self.data.groupName
+      },
+      success(res) {
+        // console.log(res);
+        self.setData({
+          groupName: ''
+        })
+        Notify({
+          message: '新建成功',
+          duration: 1500,
+          selector: '#notify-selector',
+          background: '#28a745'
+        });
+        setTimeout(() => {
+          wx.switchTab({
+            url: '/pages/group/group',
+          }) 
+        },1500)
+      },
+      fail(err) {
+        console.log('错误',err);        
+      } 
+    })
+  },
+  // 获取到输入框中的内容
+  onGroupNameChange: function(event) {
+    // 将获取到的内容传到data中
+    this.setData({
+      groupName:event.detail
+    })
   },
 
   onLoad: function() {
