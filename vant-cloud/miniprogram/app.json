@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/group/group",
+    "pages/personal/personal"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "一起买单",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#3585f9",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./images/plus-dark.png",
+        "selectedIconPath":"./images/plus-light.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "群组",
+        "iconPath": "./images/group-dark.png",
+        "selectedIconPath":"./images/group-light.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的",
+        "iconPath": "./images/user-dark.png",
+        "selectedIconPath":"./images/user-light.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
