@@ -576,6 +576,10 @@ i {
 .rating {
   margin-bottom: 4px;
 }
+.rating i {
+  margin-left: 4px;
+  color: #e09015;
+}
 .allstar20,
 .allstar40,
 .allstar35,
@@ -719,4 +723,206 @@ i {
 .bn-link:link,
 .bn-link:visited {
   background: #999a95;
+}
+#anony-music .section-title a:link,
+#anony-music .section-title a:visited {
+  color: #f38c00;
+}
+#anony-music a:link,
+#anony-music a:visited {
+  color: #555d53;
+}
+.app-icon-fm {
+  background-position: -250px 0;
+}
+.app-icon-artists {
+  background-position: -50px;
+}
+.list1 li {
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+#anony-music .artist-charts .num,
+#anony-music .artist-charts .pic {
+  float: left;
+  max-height: 61px;
+  overflow: hidden;
+  margin-right: 10px;
+}
+#anony-music a:link,
+#anony-music a:visited {
+  color: #555d53;
+}
+#anony-music .artist-song-play {
+  position: relative;
+  cursor: pointer;
+}
+#anony-music .artist-song-play .icon-bg {
+  width: 48px;
+  height: 49px;
+  margin: -24px 0 0 -24px;
+  background: #222;
+  opacity: 0.85;
+}
+#anony-music .artist-song-play .icon {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+}
+#anony-music .artist-charts .content {
+  overflow: hidden;
+  zoom: 1;
+}
+#anony-music .artist-charts .desc {
+  margin-top: 4px;
+  color: #999;
+}
+#anony-music .album-list {
+  margin-bottom: 20px;
+}
+#anony-music .album-list .pic {
+  height: 80px;
+  overflow: hidden;
+}
+#anony-music .album-list .title {
+  font-size: 12px;
+  color: #666;
+}
+#anony-music .programme-list .cover {
+  position: relative;
+}
+#anony-music .programme-list .cover i {
+  position: absolute;
+  background-image: -webkit-image-set(url("https://img3.doubanio.com/f/sns/29a478366d210acff7a1b1fcecadf46893fd3353/pics/timeline-player-cover.png") 1x, url("https://img3.doubanio.com/f/sns/990331ed0f35e42d1b2dc958fe5ed9f0a834c19e/pics/timeline-player-cover@2x.png") 2x);
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 80px;
+  background-position: 50% 50%;
+  left: 26px;
+  opacity: 0.8;
+}
+#anony-market .market-spu-pic1 {
+  background-image: url("../image/豆品1.jpg");
+}
+#anony-market .market-spu-pic2 {
+  background-image: url("../image/豆品2.jpg");
+}
+#anony-market .market-spu-pic3 {
+  background-image: url("../image/豆品3.jpg");
+}
+#anony-market .market-spu-pic4 {
+  background-image: url("../image/豆品4.png");
+}
+#anony-market .market-topic-pic5 {
+  background-image: url("../image/豆瓣收藏夹.png");
+}
+#anony-market .market-topics .market-topics-item {
+  display: block;
+  margin-bottom: 15px;
+}
+#anony-market .market-topics .market-topic-pic {
+  display: block;
+  width: 100%;
+  height: 95px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#anony-market .market-group-topics .market-group-topic-title {
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+#anony-market .market-group-topics .market-group-topic-title a {
+  height: 1.4em;
+  line-height: 1.4em;
+  overflow: hidden;
+}
+#anony-market .market-group-topics .market-group-topic-footer {
+  color: #6a6a6a;
+  font-size: 12px;
+  clear: both;
+  overflow: hidden;
+  margin: 0px;
+}
+#anony-market .market-group-topics .market-group-topic-footer .market-group-topic-date {
+  float: right;
+}
+#anony-market .market-spu-list .main-sku {
+  float: left;
+  width: 240px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+}
+#anony-market .market-spu-list .main-sku .market-spu-pic {
+  height: 220px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#anony-market .market-spu-list .main-sku .market-spu-footer {
+  margin-top: 10px;
+  line-height: 22px;
+  font-size: 16px;
+  clear: both;
+  overflow: hidden;
+}
+#anony-market .market-spu-list .main-sku .market-spu-footer .market-spu-price {
+  color: #e55457;
+  float: right;
+}
+#anony-market a:link,
+#anony-market a:visited {
+  color: #3377a9;
+}
+#anony-events .section-title a:link,
+#anony-events .section-title :visited {
+  color: #ec5303;
+}
+#anony-events a:link,
+#anony-events a:visited {
+  color: #643;
+}
+#anony-events .events-list ul {
+  margin-left: -20px;
+}
+#anony-events .events-list li {
+  width: 248px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+  overflow: hidden;
+  zoom: 1;
+}
+#anony-events .events-list .pic {
+  float: left;
+  margin-right: 10px;
+}
+#anony-events .events-list .info {
+  overflow: hidden;
+  zoom: 1;
+  color: #666;
+}
+.wrapper {
+  width: 950px;
+  margin: 0 auto;
+}
+.wrapper .extra {
+  clear: both;
+  text-align: right;
+}
+.wrapper #ft {
+  overflow: hidden;
+  zoom: 1;
+  padding: 14px 0;
+  margin-top: 30px;
+  border-top: 1px dashed #dcdcdc;
+  color: #999;
+}
+.wrapper #ft .fleft {
+  float: left;
+}
+.wrapper #ft .fright {
+  float: right;
 }
