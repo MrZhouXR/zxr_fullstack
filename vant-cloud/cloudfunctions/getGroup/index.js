@@ -11,17 +11,21 @@ exports.main = async (event, context) => {
     var that = this
     const openId = cloud.getWXContext().OPENID
     // 查找user-group这个库里面是否具有该openId
-    const result = await db.collection('user-group').where({
-      groupId: openId
-    }).get({
-      success(res) {
-        console.log('查询成功',res.data);
-        
-      }
-    })
-    console.log(result);
-    
     // 按照这个openId把user-group里相应的数据取出
     // 去group中查找所有的_id 和groupId相同的数据
+    try {
+      return await db.collection('user-group').where({
+      groupId: openId,
+    })
+    .get({
+      success (res) {
+        console.log(res);
+      }
+    })
+    } catch (error) {
+      console.error(error);
+      
+    }
+    
   
 }

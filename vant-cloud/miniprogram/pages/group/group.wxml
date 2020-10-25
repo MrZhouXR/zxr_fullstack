@@ -8,7 +8,7 @@
       我的群组
     </view>
     <view class="public-item">
-      <view class="public-item-name">测试群组名</view>
+      <view class="public-item-name" bindtap="onShow">测试群组名</view>
       <view>
         <image src="" />
         <van-icon name="arrow" style="color:#c6c6c6"></van-icon>

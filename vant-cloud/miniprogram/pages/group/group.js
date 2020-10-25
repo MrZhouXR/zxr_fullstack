@@ -30,9 +30,12 @@ Page({
     wx.showNavigationBarLoading()
     wx.cloud.callFunction({
       name: 'getGroup',
-      data: {},
+      data: {
+        
+      },
       success(res) {
-        console.log(res);
+        console.log("获取openid成功！", res)
+        console.log("openid是：", res.result.openid)
       },
       fail(err) {
         console.log(err);
