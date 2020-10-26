@@ -13,19 +13,24 @@ exports.main = async (event, context) => {
     // 查找user-group这个库里面是否具有该openId
     // 按照这个openId把user-group里相应的数据取出
     // 去group中查找所有的_id 和groupId相同的数据
-    try {
-      return await db.collection('user-group').where({
-      groupId: openId,
-    })
-    .get({
-      success (res) {
-        console.log(res);
+    let groupList = await db.collection('user-group').where({
+      userId: openId
+    }).get()
+    let returnResult = []
+    for (let item of groupList.data){
+      const oneGroup = await db.collection('group').where({
+        _id: item.groupId,
+        deleted: false
+      }).get()
+      if (oneGroup.data.length > 0) {
+        const userInfo = await db.collection('user').where({
+          openId: oneGroup.data[0].createBy
+        }).get()
+        oneGroup.data[0].createBy = userInfo.data[0]
+        oneGroup.data[0].relateUserGroupId = item._id
+        returnResult.push(oneGroup.data[0])
       }
-    })
-    } catch (error) {
-      console.error(error);
-      
     }
-    
-  
+    return returnResult.sort(
+      (a , b) => a.createTime < b.createTime ? 1 : -1)
 }

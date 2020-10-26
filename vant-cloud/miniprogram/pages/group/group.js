@@ -34,8 +34,10 @@ Page({
         
       },
       success(res) {
-        console.log("获取openid成功！", res)
-        console.log("openid是：", res.result.openid)
+        console.log( res)
+        self.setData({
+          groupList: res.result
+        })
       },
       fail(err) {
         console.log(err);
