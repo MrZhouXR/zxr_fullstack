@@ -1,0 +1,4 @@
+/* pages/home/home.wxss */
+.weui-search-bar{
+  background-color: #42BD55;
+}
