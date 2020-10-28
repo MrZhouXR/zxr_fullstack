@@ -2,3 +2,41 @@
 .weui-search-bar{
   background-color: #42BD55;
 }
+.row{
+  margin-bottom: 30rpx;
+}
+.title-wrapper{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 30rpx;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.title{
+  font-weight: bold;
+  font-size: 34rpx;
+}
+.title-right{
+  display: flex;
+  align-items: center;
+  margin-right: 30rpx;
+}
+.title-right .more{
+  font-size: 30rpx;
+  color: #42BD55;
+}
+.title-right .arrow{
+  width: 12rpx;
+  height: 12rpx;
+  border:1px solid #42BD55;
+  border-left-color:#fff ;
+  border-bottom-color:#fff ;
+  transform: rotate(45deg);
+}
+.scroll-view_movie{
+  height: 402rpx;
+  white-space: nowrap;
+}
+.scroll-view_movie .item{
+  margin-left: 30rpx;
+}
