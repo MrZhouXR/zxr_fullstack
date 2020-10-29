@@ -9,6 +9,7 @@ App({
     wx.db = {}
     wx.db.url = (url) => {
       return `https://api.douban.com${url}`
+      // return `https://douban.uieee.com${url}`
     }
 
     let info = wx.getSystemInfoSync()

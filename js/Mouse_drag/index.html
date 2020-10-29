@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .drag {
+      position: absolute;
+      left: 0;top: 0;
+      width: 50px;
+      height: 50px;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="drag">drag1</div>
+  <!-- mouseDown mouseMove mouseUp -->
+  <script>
+    const drag = document.querySelector('.drag');
+    dragEle(drag);
+    function dragEle(ele) {
+        ele.addEventListener('mousedown', () => {
+        // 如果绑定在 drag 区域，只要超出它范围，就不能移动，所以绑定在 document 上
+        const onMove = (event) => {
+        // 必须down 如果 isDown = true
+          let x = event.clientX, y = event.clientY;
+          ele.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        }
+        document.addEventListener('mousemove', onMove);
+        // 第一次拖动完毕之后，把上一次事件取消
+        document.addEventListener('mouseup',() => {
+          document.removeEventListener('mousemove', onMove);
+        })
+      })
+    }
+   
+    
+  </script>
+
+</body>
+</html>
