@@ -1,6 +1,24 @@
 *
   margin 0
   padding 0
+#bold-title
+  font-weight: normal
+	font-stretch: normal
+  font-family: Exo-Medium;
+  color: #282828
+  text-align center
+  margin 0 auto
+#ignore
+  font-size: 10px
+  letter-spacing: 2px;
+  color: #ff6d6d;
+ul,li
+  list-style: none
+.red-title
+    font-weight bold
+    color: #ff6d6d
+    text-align center
+    font-size: 10px
 .wrapper
   width 100%  
   .section1
@@ -9,7 +27,7 @@
     height 600px
     background url(./image/section1-bg.png) no-repeat
     background-size 100% 100%
-    .title
+    .section1-title
       width 708px
       height 138px
       font-weight lighter
@@ -49,12 +67,13 @@
     .section2-left
       flex: 700
       padding 140px
-      p
+      .red-title
         font-size: 10px
         letter-spacing: 3px
+        font-weight bold
         line-height 30px
         color: #ff6d6d
-      .title
+      .section2-title
         min-width 500px
         font-size: 35px
         font-weight: normal 
@@ -85,11 +104,13 @@
     position relative
     height 675px
     background: url(./image/pen-holder.png)
-    p
+    overflow hidden
+    .red-title
       padding-top:  138px
       font-size: 10px
       letter-spacing: 3px
       line-height 30px
+      font-weight bold
       color: #ff6d6d
       text-align center
     .section3-title
@@ -128,10 +149,253 @@
             text-align center
           .image-desc
             width 317px
-            font-family: Exo-Medium;
             font-size 10px
             text-align center
             line-height: 26px;
             letter-spacing: 1px;
-            opacity 0.66
+            opacity .66
+  .section4
+    height 552px
+    overflow hidden
+    position relative
+    .section4-left
+      width 82px
+      height 0px
+      position absolute
+      border-bottom 563px solid #fb8686
+      border-right 552px solid transparent
+    .mac-book
+      position absolute
+      margin-top 93px
+      margin-left: 50px 
+    .section4-right
+      margin-right 196px
+      position absolute
+      left 635px
+      top: 141px
+      margin-left: 90px
+      .red-title
+        font-size: 10px
+        letter-spacing: 3px
+        font-weight bold
+        line-height 30px
+        color: #ff6d6d
+      .section4-title
+        width: 389px;
+        height: 93px;
+        font-size: 30px
+        line-height 40px
+        letter-spacing 2px
+        margin-top 25px
+      .desc
+        width 456px
+        margin-top 36px
+        line-height 26px
+        letter-spacing 1px
+        font-size: 10px
+        opacity .66
+  .section5
+    display: block
+    background url('./image/back-bg.png')
+    overflow hidden
+    .section5-top
+      padding-left: 156px
+      margin-top 110px
+      display flex
+      li
+        width 300px
+        height 278px
+        float left
+        margin-right 60px
+        .person-image
+          width 70px
+          height 70px
+          background #4e4e5e
+          margin 0 auto
+        .image-title
+          width 131px
+          height 43px
+          margin 26px auto 37px
+          .person-name
+            color: #ffffff
+            letter-spacing 1px
+            line-height 40px
+            font-size: 16px
+          .red-title
+            color: #ff6d6d;
+            text-align center
+            font-size: 10px
+            letter-spacing 0
+        .image-desc
+          width 300px
+          height 96px
+          line-height 20px
+          letter-spacing 1px
+          font-size: 10px
+          opacity .66
+          color: #ffffff
+          text-align center
+    .section5-bottom
+      width 893px
+      height 120px
+      display flex
+      margin 0 auto
+      margin-top 95px
+      li
+        float left
+        width 96px
+        height 65px
+        margin-left 82px
+      .first-image
+        margin-left 0
+  .section6
+    position relative
+    display: block
+    height 754px
+    overflow hidden
+    .head-name
+      margin-top 96px
+      .red-title
+        text-align center
+        font-size: 10px
+        letter-spacing: 3px
+        font-weight bold
+        line-height 30px
+        color: #fb8686
+    .section6-title
+      text-align center
+      line-height: 50px
+      letter-spacing: 2px
+      font-weight bold
+      font-size: 25px
+    .desc
+      width 600px
+      text-align center
+      margin 48px auto 93px
+      font-size: 10px
+      letter-spacing 1px
+      line-height 26px
+      opacity .66
+    .image-document
+      position absolute
+      text-align center
+      padding-left 295px
+  .section7
+    display: block
+    overflow hidden
+    background #323969
+    .head-name
+      margin-top 98px
+    .section6-title
+      color: #ffffff
+      text-align center 
+      line-height 30px
+      letter-spacing 2px
+      padding: 5px
+      font-size: 30px
+    .input-list
+      text-align center
+      margin-top 40px
+      input 
+        background #464c77
+        border-radius 3px
+        border 1px solid #ffffff
+        font-size: 15px
+        padding: 10px
+        padding-left 20px
+      input::placeholder
+        color: white
+      .umail
+        margin-left 27px
+      .uword
+        margin-left 27px
+      .button-try
+        margin-left 32px
+        height 40px
+        width 239px
+        border 1px solid #ff6d6d
+        border-radius 3px
+        background #ff6d6d
+      .date-notice
+        text-align right
+        margin-right 182px
+        margin-bottom 40px
+        letter-spacing 1px
+        font-size: 10px
+        color: #ffffff
+    .suggests
+      letter-spacing 1px
+      font-size: 10px
+      text-align center
+      margin 52px auto 85px
+      color: #ffffff
+      .underline
+        text-decoration underline
+  .section8
+    overflow hidden
+    position relative
+    height 333px
+    display flex
+    .triangle
+      width 0
+      height 0
+      border-top 322px solid #ff6d6d
+      border-left 333px solid transparent
+      position absolute
+      right 0
+    .start
+      margin: 95px 60px 100px  142px
+      .desc
+        width 214px
+        letter-spacing 1px
+        line-height 26px
+        font-size: 10px
+        opacity .66
+    .support
+      margin-top 100px
+      .big-title
+        margin-bottom 28px
+      .hgc 
+        width 80px
+        font-size: 10px
+        line-height 25px
+        letter-spacing 1px
+        opacity .66
+    .about
+      margin 100px 84px 0 100px
+      .big-title
+        margin-bottom 28px
+      .hgc 
+        width 92px
+        font-size: 10px
+        line-height 25px
+        letter-spacing 1px
+        opacity .66
+    .news
+      margin-top: 100px
+      overflow hidden
+      display: block
+      .big-title
+        margin-bottom 30px
+      .search
+        display: flex
+        .button-air
+          background #ff6d6d
+          width 48px
+          height 45px
+          text-align center
+          img
+            margin-top 12px
+        input 
+          border 1px solid #b8b8bf
+          background #f6f6f6
+          border-radius 3px
+          margin-top 0px
+          padding-left: 20px
+      .icon
+        margin 19px 0 101px 44px
+        li
+          width 20px
+          display inline-block
+          margin-right 27px
 
