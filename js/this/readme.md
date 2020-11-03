@@ -11,3 +11,5 @@
 
 
 # 显式绑定
+  call  apply(可传数组)     bind
+  如果 call 和apply ，bind的第一个参数写的是 null ， 那么this指向 window 对象
