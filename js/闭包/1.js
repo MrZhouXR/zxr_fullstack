@@ -40,3 +40,17 @@
 //   return a 
 // }
 // var result = add()
+
+
+function test() {
+  var food = 'apple'
+
+  function a() {
+    console.log(food);
+    food = 'banana'
+  }
+
+  function b() {
+    console.log(food);
+  }
+}
