@@ -1,0 +1,35 @@
+/* pages/movie/movie.wxss */
+.movieList{
+  display: flex;
+  padding: 10px;
+  height: 300rpx;
+  border-bottom: 1px solid #ccc;
+}
+.imageList{
+  width: 200rpx;
+  height: 100%;
+  margin-right: 20rpx;
+}
+.movie-info{
+  flex: 1;
+  font-size: 28rpx;
+  line-height: 1.8;
+  display: block;
+  width: 191rpx;
+  height: 150rpx;
+}
+.movie-title{
+  color: #666;
+  font-size: 40rpx;
+  font-weight: bolder;
+  overflow: hidden;
+  text-overflow:ellipsis ;
+  white-space: nowrap;
+}
+.movie-comment{
+  height: 60rpx;
+  background: #E54847;
+  color: #fff;
+  font-size: 26rpx;
+  margin-top: 200rpx;
+}
