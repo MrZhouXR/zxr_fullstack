@@ -1,0 +1,14 @@
+<!--pages/list/list.wxml-->
+<view class = "container">
+  <block wx:for="{{ arrList }}" wx:key = "{{ index }}">
+    <view class = "item">
+      <text >{{ item }}</text>
+    </view>
+  </block>
+  <block wx:if="{{ arrList.length == 0 }}">
+    <view class = "item">
+      <text>加载更多...</text>
+    </view>
+  </block>
+</view>
+  
