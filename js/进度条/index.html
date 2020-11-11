@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      margin-top: 40px;
+
+    }
+    .progress-bar{
+      width: 80%;
+      height: 3px;
+      background-color: rgba(0,0,0,3);
+      position: relative;
+      margin-left: 30px;
+    }
+    .progress-btn{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      background-color: yellow;
+      transform: translate3d(-50%, -50%, 0);
+    }
+    .progress{
+      position: absolute;
+      top: 0;left: 0;
+      height: 100%;
+      width: 0;
+      background-color: yellow;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar">
+    <!-- 走过的进度 -->
+    <div class="progress"></div>
+    <!-- 按钮 -->
+    <div class="progress-btn">
+    </div>
+  </div>
+  <script>
+    const btn = document.querySelector('.progress-btn')
+    const progress = document.querySelector('.progress')
+    const progressBar = document.querySelector('.progress-bar')
+    const width = progressBar.offsetWidth
+    let downX = 0
+    let downLeft = 0
+    btn.addEventListener('touchstart',(event) => {
+      const touch = event.touches[0]
+      downX = touch.clientX
+      downLeft = parseInt(btn.style.left || 0)
+    })
+    btn.addEventListener('touchmove',() => {
+      const touch = event.touches[0]
+      const diffX = touch.clientX - downX
+      let move = diffX + downLeft
+      if (move < 0) {
+        move = 0
+      } else if(move > width) {
+        move = width
+      }
+      btn.style.left = `${move}px`
+      progress.style.width = `${move / width * 100}%` 
+    })
+  </script>
+</body>
+</html>

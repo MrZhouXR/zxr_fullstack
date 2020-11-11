@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      margin-top: 40px;
+
+    }
+    .progress-bar{
+      width: 80%;
+      height: 3px;
+      background-color: rgba(0,0,0,3);
+      position: relative;
+      margin-left: 30px;
+    }
+    .progress-button{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      background-color: yellow;
+      transform: translate3d(-50%, -50%, 0);
+    }
+    .progress{
+      position: absolute;
+      top: 0;left: 0;
+      height: 100%;
+      width: 0;
+      background-color: yellow;
+
+    }
+    .wrap1{
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap1"></div>
+  <div class="wrap2"></div>
+  <script>
+    function Progress(selector) {
+      this.progressBar = document.createElement('div');
+      this.progress = document.createElement('div');
+      // 插到哪个里面 就专指那个容器里面的button
+      this.progressButton = document.createElement('div');
+      this.progressBar.classList.add('progress-bar');
+      this.progress.classList.add('progress');
+      this.progressButton.classList.add('progress-button');
+      this.progressBar.appendChild(this.progress);
+      this.progressBar.appendChild(this.progressButton);
+      document.querySelector(selector).appendChild(this.progressBar);
+      this.initEvent()
+    }
+    Progress.prototype.initEvent = function () {
+      this.downX = 0;
+      this.buttonLeft = 0;
+
+      this.progressButton.addEventListener('touchstart', (event) => {
+        const touch = event.touches[0];
+        this.downX = touch.clientX;
+        this.buttonLeft = parseInt(this.progressButton.style.left || 0, 10);
+      })
+      this.progressButton.addEventListener('touchmove', () => {
+        const touch = event.touches[0];
+        const diffX = touch.clientX - this.downX;
+        let move = diffX + this.buttonLeft;
+        if (move > this.progressBar.offsetWidth) {
+          move = this.progressBar.offsetWidth
+        } else if (move < 0) {
+          move = 0;
+        }
+        // 通知回调 执行的
+        // this.onProgressChange(
+        //   (move / this.progressBar.offsetWidth) * 100
+        // );
+        this.progressButton.style.left = move + 'px';
+        this.progress.style.width = (move / this.progressBar.offsetWidth) * 100 + '%';
+      })
+
+    }
+    new Progress('.wrap1')
+    new Progress('.wrap2')
+  </script>
+</body>
+</html>
