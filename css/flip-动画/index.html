@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      box-sizing: border-box;
+      padding: 0;
+    }
+
+    body {
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .loading {
+      margin: 12px;
+      text-align: center;
+    }
+
+    .action {
+      margin: 12px;
+      text-align: center;
+    }
+
+    .action button {
+      margin-right: 8px;
+    }
+
+    .link {
+      display: block;
+      padding: 8px;
+      text-align: center;
+      color: red;
+    }
+
+    .wrap {
+      display: flex;
+      flex-wrap: wrap;
+      column-count: 4;
+    }
+
+    .img-wrap {
+      width: 25%;
+      padding: 8px;
+    }
+
+    .img {
+      width: 100%;
+      height: 200px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .move {
+      transition: transform 1s;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="add">add</button>
+  <button id="random" onclick="randomNode();">random</button>
+  <div class="wrap">
+    <img src="https://pic1.zhimg.com/v2-d640737ff5eac65fe30375f324512d00_r.jpg" class="img-wrap"><img
+      src="https://pic4.zhimg.com/v2-2103acaf025ceda331a0dd59022443ab_r.jpg" class="img-wrap"><img
+      src="https://pic4.zhimg.com/v2-0dcbcf5a48a97afab7439e09af65c98f_r.jpg" class="img-wrap"><img
+      src="https://pic3.zhimg.com/v2-89735fee10045d51693f1f74369aaa46_r.jpg" alt="" class="img-wrap"><img
+      src="https://pic2.zhimg.com/v2-edc1b118c420939c545b1449344139b5_r.jpg" class="img-wrap"><img
+      src="https://pic4.zhimg.com/v2-525c8002eb619387e7a31f67169f8a2b_r.jpg" class="img-wrap"><img
+      src="https://pic1.zhimg.com/v2-6e92b4576b93302ad5fe04c7e95e375c_r.jpg" class="img-wrap"><img
+      src="https://pic1.zhimg.com/v2-8d3dd83f3a419964687a028de653f8d8_r.jpg" class="img-wrap"><img
+      src="https://pic1.zhimg.com/v2-c90799771ed8469608f326698113e34c_r.jpg" class="img-wrap"></div>
+<script>
+  const imags = document.querySelectorAll('img')
+  let map = new Map()
+  imags.forEach((item) => {
+    map.set(item,item.getBoundingClientRect())
+  })
+  function randomNode() {
+    let newimage = Array.from(imags).sort(() => {
+      return Math.random() - 0.5
+    })
+    // 同一个 dom 节点，只会属于一个父容器
+    newimage.forEach((item) => {
+      document.querySelector('.wrap').appendChild(item)
+    })
+    let last = new Map()
+  newimage.forEach((item) => {
+    last.set(item,item.getBoundingClientRect())
+  })
+  newimage.forEach((item) => {
+    let x = map.get(item).left - last.get(item).left
+    let y = map.get(item).top - last.get(item).top
+    let keyFrame = [
+      {
+        transform: `translate(${x}px,${y}px)`
+      },
+      {
+        transform: `translate(0px,0px)`
+      }
+    ]
+    item.animate(keyFrame,{
+      duration: 300,
+      easing: 'ease-in-out'
+    })
+  })
+  }
+ 
+</script>
+</body>
+
+</html>
