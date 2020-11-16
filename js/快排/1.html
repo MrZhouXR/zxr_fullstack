@@ -1,0 +1,28 @@
+<script>
+  function cb(a,b) {
+    return a - b
+  }
+  function partition(arr,left,right) {
+    if (left >= right) return
+    let private = arr[left]
+    let i = left, j = right
+    while(i < j) {
+      while(cb(arr[j] , private) <= 0 && i < j) {
+        j--
+      }
+      arr[i] = arr[j]
+      while(cb(arr[i] , private) >= 0 && i < j) {
+        i++
+      }
+      arr[j] = arr[i]
+    }
+    arr[i] = private
+    partition(arr, left , i - 1)
+    partition(arr, i  + 1,right)
+  }
+  function sort(arr) {
+    partition(arr , 0 , arr.length - 1)
+    return arr
+  }
+  console.log(sort([5 , 3, 4, -1, 2, 9, -8]));
+</script>
