@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrap{
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <!-- 长按  点(click) 滑动 
+    长按  计时器 mouseUp(leave)
+    移动click有延迟 300 ms， 需要延迟一会看是双击事件还是单机事件
+  -->
+  <a href="www.baidu.com" target="_blank">baidu.com</a>
+  <div class="wrap"></div>
+  <script>
+    const wrap = document.querySelector('.wrap')
+    // 自定义事件
+    wrap.addEventListener('press', () => {
+      console.log('receive press');
+    })
+    wrap.addEventListener('panleft',() => {})
+    let timeout = null
+    function start() {
+      timeout = setTimeout(() => {
+        console.log('press finish');
+        let e = new CustomEvent('press')
+        wrap.dispatchEvent(e)
+      },500)
+    }
+    let startX = 0
+    let startY = 0
+    // touchstart -> move -> end -> click
+    wrap.addEventListener('touchstart', (event) => {
+      console.log('sdfsdfd');
+      startX = event.touches[0].clientX;
+      startY = event.touches[0].clientY;
+      start()
+      event.preventDefault()
+    })
+    wrap.addEventListener('click' , () => {
+      console.log('click111');
+    })
+    function end() {
+      clearTimeout(timeout)
+    }
+    
+    wrap.addEventListener('touchmove', (event) => {
+      let diffX = event.touches[0].clientX - startX
+      let diffY = event.touches[0].clientY - startY
+      if (Math.abs(diffX) > Math.abs(diffY)) {
+        // if(Math.abs(diffX) < 100) return 
+        if(diffX ** 2 + diffY ** 2 > 100) return ;
+        if (diffX > 0) {
+          console.log('向右滑动');
+        } else {
+          console.log('左滑动');
+        }
+      }
+    })
+    wrap.addEventListener('touchend', () => {
+      end()
+    })
+    document.querySelector('a').addEventListener('click', (event) => {
+      event.preventDefault()
+      event.stopImmediatePropagation()
+    })
+  </script>
+</body>
+</html>
