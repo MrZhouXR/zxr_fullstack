@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    .wrap{
+    .wrap {
       width: 200px;
       height: 200px;
       background-color: red;
     }
   </style>
 </head>
+
 <body>
   <!-- 长按  点(click) 滑动 
     长按  计时器 mouseUp(leave)
@@ -25,14 +27,14 @@
     wrap.addEventListener('press', () => {
       console.log('receive press');
     })
-    wrap.addEventListener('panleft',() => {})
+    wrap.addEventListener('panleft', () => { })
     let timeout = null
     function start() {
       timeout = setTimeout(() => {
         console.log('press finish');
         let e = new CustomEvent('press')
         wrap.dispatchEvent(e)
-      },500)
+      }, 500)
     }
     let startX = 0
     let startY = 0
@@ -44,19 +46,19 @@
       start()
       event.preventDefault()
     })
-    wrap.addEventListener('click' , () => {
+    wrap.addEventListener('click', () => {
       console.log('click111');
     })
     function end() {
       clearTimeout(timeout)
     }
-    
+
     wrap.addEventListener('touchmove', (event) => {
       let diffX = event.touches[0].clientX - startX
       let diffY = event.touches[0].clientY - startY
       if (Math.abs(diffX) > Math.abs(diffY)) {
         // if(Math.abs(diffX) < 100) return 
-        if(diffX ** 2 + diffY ** 2 > 100) return ;
+        if (diffX ** 2 + diffY ** 2 > 100) return;
         if (diffX > 0) {
           console.log('向右滑动');
         } else {
@@ -73,4 +75,5 @@
     })
   </script>
 </body>
+
 </html>
