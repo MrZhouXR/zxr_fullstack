@@ -1,5 +1,5 @@
-const rate = 0.927
+const rate = 0.67
 var swich = function (px) {
   return px * rate
 }
-console.log(swich(231)); 
+console.log(swich(27)); 
