@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+        background-color:grey;
+        display:inline-block;
+        margin:30px;
+        width:100px;
+        height:100px;
+        border-radius: 50px;;
+      }
+      .green.light{
+        background: green;
+      }
+      .yellow.light{
+        background: yellow;
+      }
+      .red.light{
+        background: red;
+      }
+  </style>
+</head>
+
+<body>
+  <div class="green"></div>
+  <div class="yellow"></div>
+  <div class="red"></div>
+  <script>
+    function green() {
+      var lights = document.getElementsByTagName("div");
+      for(var i = 0; i < 3; i++)
+      {
+        lights[i].classList.remove("light")
+      }
+      document.querySelector('.green').classList.add('light')
+    }
+
+    function red() {
+      var lights = document.getElementsByTagName("div");
+      for(var i = 0; i < 3; i++)
+      {
+        lights[i].classList.remove("light")
+      }
+      document.querySelector('.red').classList.add('light')
+    }
+
+    function yellow() {
+      var lights = document.getElementsByTagName("div");
+      for(var i = 0; i < 3; i++)
+      {
+        lights[i].classList.remove("light")
+      }
+      document.querySelector('.yellow').classList.add('light')
+    }
+    
+    // function light(time) {
+    //   green()
+    //   setTimeout(() => {
+    //     yellow()
+    //     setTimeout(() => {
+    //       red()
+    //       setTimeout(() => {
+    //         light(time + 1)
+    //       },3000)
+    //     },2000)
+    //   },1000)
+    // }
+    // light(0)
+
+    // let p = new Promise((resolve,reject) => {
+    //   setTimeout(() => {
+    //     resolve()
+    //   },1000)
+    // })
+    // p.then(() => {
+
+    // })
+    // let url = 'https://yanxuan.nosdn.127.net/8ab9d7479cce3fb4517efc81f7f069d1.jpg?type=webp&imageView&quality=95&thumbnail=1920x420'
+    // let img = new Image()
+    // img.src = url
+    // img.onload = function () {
+    //   console.log(123);
+    // }
+    // let p1 = new Promise((resolve,reject) => {
+    //   let img = new Image()
+    //   img.src = url
+    //   img.onload = function () {
+    //     resolve() // pending -> fullfilled
+    //   }
+    //   img.onerror = function() {
+    //     reject() // pending -> rejected
+    //   }
+    // })
+  
+    // p1.then(() => {
+    //   console.log(123);
+    // })
+
+    let time = (t1) => new Promise((resolve,reject) => {
+      setTimeout(() => {
+        resolve()
+      },t1)
+    })
+    // function light2() {
+    //   green()
+    //   time(1000).then(() => {
+    //     yellow()
+    //     return time(2000)
+    //   })
+    //   .then(() => {
+    //     red()
+    //     return time(3000)
+    //   })
+    //   .then(() => {
+    //     light2()
+    //   })
+    // }
+    // light2()
+
+
+    async function light3() {
+      green()
+      await time(1000) // await一般后面接 promise， 能够让后面的代码停下来
+      yellow()
+      await time(2000)
+      red()
+      await time(3000)
+      for (let i = 0 ;i < 5; i++) {
+        await time(1000)
+        console.log(i);
+      }
+      // await foo()
+      // console.log(2); // 比foo() 先输出
+    }
+
+    function foo() {
+      setTimeout(() => 
+      {
+        console.log(1);
+      },100)
+    }
+  
+  </script>
+</body>
+
+</html>
