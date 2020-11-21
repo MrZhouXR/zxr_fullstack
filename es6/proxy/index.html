@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="app">
+    <input type="text" id="input" />
+    <span id="span"></span>
+  </div>
+  <script>
+    const data = {
+      _text: 'jsdfsd'
+    }
+
+
+    const input = document.getElementById('input')
+    const span = document.getElementById('span')
+    // input.addEventListener('change', (e) => {
+    //   console.log(e.target.value);
+    // })
+    
+    // 数据劫持
+    Object.defineProperty(data, 'text', {
+      get () {
+        // console.log('success');
+        return data._text
+      },
+      set (newVal) {
+        console.log('修改数据');
+        span.innerHTML = newVal
+        // console.log(newVal);
+      }
+    })
+    input.addEventListener('keyup' , function (e)  {
+      data.text = e.target.value
+      console.log(data.text);
+    })
+    
+
+  </script>
+</body>
+</html>
