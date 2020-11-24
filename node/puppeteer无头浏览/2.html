@@ -1,0 +1,42 @@
+<script>
+  let p = new Promise((resolve,reject) => {
+    setTimeout(() => {
+      resolve()
+    },3000)
+  })
+  async function run() {
+    await p
+    return true
+  }
+  // run().then((r) => {
+  //   console.log(r);
+  // })
+  async function bar() {
+    let r= await run()
+    console.log( 1 , r );
+  }
+
+  function req(url) {
+    return new Promise((resolve,reject) => {
+      let img = new Image()
+      img.src = '';
+      img.onload = function () {
+        resolve(url)
+      }
+      img.onerror = function() {
+        reject()
+      }
+
+    })
+  }
+
+  let arr = [
+    req('https://img.alicdn.com/tfs/TB1FjZ7VWL7gK0jSZFBXXXZZpXa-520-280.png'),
+    req('https://img12.360buyimg.com/pop/s590x470_jfs/t1/123551/25/18955/90317/5fb48dfeEc54fbc44/a9d52bea957c466b.jpg.webp')
+  ]
+
+  Promise.race(arr).then(r => {
+    console.log(r);
+  })
+
+</script>
