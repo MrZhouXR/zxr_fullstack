@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.9/vue.common.dev.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    {{msg}}
+  </div>
+  <script>
+    let app = new Vue({
+      el: '#app',
+      data() {
+        return {
+          msg: 'hello vue'
+        }
+      },
+      methods: {
+        beforeCreate() {
+          console.log('bc');
+        },
+        created() {
+          console.log('c');
+        },
+        beforeMount() {
+          console.log('bm');
+        },
+        mounted() {
+          console.log('m');
+        }
+
+      }
+    })
+  </script>
+</body>
+</html>
