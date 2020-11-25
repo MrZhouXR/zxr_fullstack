@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .test{
+      display: flex;
+    }
+    #like-btn{
+      border-radius: 10px;
+      font-size: 20px;
+      border: 1px solid #ff0000;
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <!-- view -->
+  <!-- 挂载点 -->
+  <div class="wrapper">
+    <!-- <div class="like-btn">
+      <div class="like-text">点赞</div>
+    </div> -->
+  </div>
+  <script>
+    // const button = document.querySelector('.like-btn')
+    // const buttonText = button.querySelector('.like-text')
+    // let isLiked = false // 状态/数据
+    // button.addEventListener('click', () => {
+    //   isLiked = !isLiked
+    //   if (isLiked) {
+    //     buttonText.innerHTML = '取消'
+    //   } else {
+    //     buttonText.innerHTML = '点赞'
+    //   }
+    // },false)
+
+
+    // 公共的方法
+    //  tmpl 字符串的操作
+    const createDOMFromString = (domString) => {
+      // 可挂载的
+      const div = document.createElement('div')
+      div.innerHTML = domString
+      return div
+    }
+
+
+
+    class LikeButton {
+      constructor() {
+        this.state = {
+          isLiked: false
+        }
+      }
+      // 模板编译  核心 
+      render() { // View
+        this.el = createDOMFromString(
+          `<button id = "like-btn">
+            <span class = "like-text">点赞</span>
+          </button> `
+        )
+        // 添加事件
+        this.el.addEventListener('click',this.changeLikeText.bind(this),false)
+        return this.el
+      }
+      // 方法
+      changeLikeText() {
+        const likeText = this.el.querySelector('.like-text')
+        // 维护好数据状态
+        this.state.isLiked = !this.state.isLiked
+        // 做成模板 更新
+        likeText.innerHTML = this.state.isLiked ? '取消': '点赞' 
+
+
+      }
+    }
+    // 挂载点
+    const wrapper = document.querySelector('.wrapper')
+    // DOM 查找 挂载点和 HTML分开
+    // DOM 性能很差
+    const likeBtn1 = new LikeButton()
+    wrapper.appendChild(likeBtn1.render())
+    // 复用 -》 组件  <LikeButton/>
+    const likeBtn2 = new LikeButton()
+    wrapper.appendChild(likeBtn2.render())
+
+
+
+
+  </script>
+</body>
+</html>
