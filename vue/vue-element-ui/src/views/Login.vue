@@ -27,9 +27,10 @@ export default {
   },
   methods: {
     login() {
-      if (this.username === 'admin' && this.password === '123') [
-        this.$router.push({path: 'Home',query: {username: this.username,password: this.password}})
-      ]
+      if (this.username === 'admin' && this.password === '123') {
+        this.$router.push({name: 'Home',params: {username: this.username,password: this.password}})
+        localStorage.setItem('username',this.username)
+      }
     }
   }
 }
