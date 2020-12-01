@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="wrap">
+    66
+    <p>123</p>
+    <!-- 456 -->
+  </div>
+  <script>
+    console.log(
+      document.getElementById('wrap').childNodes
+    )
+    const observer = new MutationObserver(() => {
+      console.log(1)
+    })
+    // DOM 节点种类：
+    // document.createElement
+    // 文本节点
+    // '1' Number('1')
+    const textNode = document.createTextNode(String(1))
+    observer.observe(textNode, {
+      characterData: true
+    })
+    textNode.data = String(2);
+    // SyntaxError: Invalid or unexpected token
+    console.log(1.1)
+    // 歧义  对象.key  小数点
+    console.log((1).toString());  
+    console.log('2'.toString());
+    // 
+    // 装箱  '2'  -> new String('2')
+    // 1  -> new Number('1')
+    // 拆箱  
+    let str = new String('aaaa')
+    console.log(String(str), str);
+    let arr = [1,2,3];
+    arr.toString();   // 数组
+    // 1,2,3
+    // 对象上面的
+    Object.prototype.toString.call(arr);
+    // [object Array]
+  </script>
+</body>
+</html>

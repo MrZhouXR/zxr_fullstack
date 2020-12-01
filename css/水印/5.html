@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <span>
+      <h2></h2>
+    </span>
+    <h2></h2>
+    <h3></h3>
+  </div>
+  <h2></h2>
+  <script>
+    const app = document.getElementById('app');
+    // app 里面 h2 标签 有几个
+    // app 里面 以 h 开头 的标签 有几个
+    let nodes = app.querySelectorAll('h2');
+    console.log(nodes);
+    // html -> 字符串  -> 正则
+    // console.log(app.innerHTML)
+    let str = app.innerHTML;
+    // str = '<haaaaaaa'
+    let reg = /(<h)/g;
+    console.log(1, ...str.matchAll(reg));
+
+    // app.childNodes
+    findH(app);
+    function findH(parent) {
+      console.log(parent.tagName);  
+      // app 下面的每个节孙点都能拿到
+      if (parent.childNodes) {
+        for (let child of parent.childNodes) {
+          findH(child);
+        }
+      }
+    }
+
+  </script>
+</body>
+</html>
