@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .hover-tips{
+      position: relative;
+      display: inline-block;
+      padding:  0 20px;
+      text-decoration: none;
+      border-radius: 10px;
+      height: 40px;
+      line-height: 40px;
+      background: #000;
+    }
+    .btn-1::after{
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      border-radius: 5px;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, .5);
+      text-align: center;
+      font-size: 12px;
+      content: attr(data-msg);
+      transition: all 300ms;
+      opacity: 0;
+    }
+    .btn-1:hover::after{
+      opacity: 1;
+      left: calc(100% + 20px);
+    }
+  </style>
+</head>
+<body>
+  <a href="www.baidu.com" class="hover-tips btn-1" data-msg="hello world">提示框</a>
+</body>
+</html>
