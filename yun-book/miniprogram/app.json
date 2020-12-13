@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/bookCity/bookCity",
+    "pages/list/list",
+    "pages/index/index",
+    "pages/bookSection/bookSection",
+    "pages/bookContent/bookContent"
+  ],
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#be3948",
+    "list": [
+      {
+        "pagePath": "pages/bookCity/bookCity",
+        "text": "书城",
+        "iconPath": "images/bookcity.png",
+        "selectedIconPath": "images/selectcity.png"
+      },
+      {
+        "pagePath": "pages/list/list",
+        "text": "书架",
+        "iconPath": "images/listicon.png",
+        "selectedIconPath": "images/listSelect.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/mySelect.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#be3948",
+    "navigationBarTitleText": "小说阅读器",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}
