@@ -1,4 +1,5 @@
 import apiLogin from './interface/login'
+import apiRegister from './interface/register'
 
 const ins = Vue => {
   Object.defineProperties(Vue.prototype, {
@@ -7,7 +8,7 @@ const ins = Vue => {
         return Object.assign(
           {},
           apiLogin,
-
+          apiRegister
         )
       }
     }
