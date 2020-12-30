@@ -1,0 +1,41 @@
+<!-- 寄生组合继承 -->
+
+<script>
+  function Parent(name) {
+    this.name = name
+    this.color = ['red']
+  }
+
+  Parent.prototype.getName = function() {
+    console.log(this.name);
+  }
+
+
+  let anotherPrototype = Object.create(Parent.prototype)
+  anotherPrototype.constructor = Parent
+
+
+  Child.prototype = anotherPrototype
+  function Child(name,age) {
+    Parent.call(this,name)
+    this.age = age
+  }
+
+  let child1 = new Child('jiushen', '18')
+  child1.color.push('yellow')
+  console.log(child1.name);
+  console.log(child1.age);
+  console.log(child1.color);
+
+
+
+  let child2 = new Child('ceo', '19')
+  console.log(child2.name);
+  console.log(child2.age);
+  console.log(child2.color);
+
+
+
+
+
+</script>

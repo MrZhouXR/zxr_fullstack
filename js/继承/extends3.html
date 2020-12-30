@@ -1,0 +1,31 @@
+<!-- 组合继承 : 伪经典继承-->
+
+<script>
+    function Parent(name) {
+    this.name = name
+    this.colors = ['red']
+  }
+
+  Child.prototype = Parent.prototype
+
+  function Child(name,age) {
+    Parent.call(this,name) 
+    this.age = age
+  }
+
+
+  let child1 = new Child('aaa','18')
+  child1.colors.push('yellow')
+  console.log(child1.name); // names: 'jiushen'
+  console.log(child1.age); // age: '18'
+  console.log(child1.colors); // colors: []
+
+
+  let child2 = new Child('bbb','19')
+  console.log(child2.name); // names: 'jiushen'
+  console.log(child2.age); // age: '18'
+  console.log(child2.colors); // colors: []
+
+
+
+</script>

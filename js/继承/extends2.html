@@ -1,0 +1,22 @@
+<!-- 构造函数继承
+     避免引用类型被所有实例共享-->
+
+<script>
+  function Parent() {
+    this.names = ['jiushen','ceo']
+    this.name = name
+  }
+
+  function Child() {
+    Parent.call(this,name)
+  }
+
+  let child1 = new Child('aaa')
+  child1.names.push('cong')
+  console.log(child1); // names: ['jiushen','ceo','cong']
+
+  let child2 = new Child('bbb')
+  console.log(child2);// names: ['jiushen','ceo']
+
+
+</script>

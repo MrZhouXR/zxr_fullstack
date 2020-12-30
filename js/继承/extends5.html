@@ -1,0 +1,30 @@
+<!-- 寄生式继承 : 仅仅只是创建一个封装继承过程的函数，并不能解决原型式继承所存在的问题-->
+
+<script>
+  function createObj(obj) {
+    let clone = Object.create(obj)
+    clone.sayName = function() {
+      console.log('hi');
+    }
+    return clone
+  }
+
+  let person = {
+    name : 'jiushen',
+    friends : ['ceo']
+  }
+
+  let person1 = createObj(person)
+  let person2 = createObj(person)
+
+  person1.name = 'zhou'
+  console.log(person1.name);
+  console.log(person2.name);
+
+  person2.friends.push('yao')
+  console.log(person2.friends);
+
+
+
+
+</script>
