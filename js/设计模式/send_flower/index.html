@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //数据类型
+        //描述性很强的语言
+        // 对象字面量
+        class Flower{
+            constructor(flower_type,flower_num){
+                this.flower_type = flower_type;
+                this.flower_num = flower_num;
+            }
+        }
+        const zxr = {
+            name: '周轩任',
+            sex: '男',
+            isSingle: true,
+            hometown: '宜春',
+            age: 22,
+            job_city: undefined/*未定义*/,
+            girlfriend: null,
+            hobbies:['游戏','篮球','敲代码'],
+            sendFlower: function(receiver){ //功能
+                //送花的对象
+                //花的实例 
+                let flower = new Flower('红玫瑰',11);
+                //送花
+                //talk in js uml
+                receiver.receiveFlower(zxr,flower);
+            }
+        }
+
+        const xx = {
+            name: '潇潇',
+            sex: '女',
+            receiveFlower: function(sender,flower){
+                console.log('收到了' + sender.name+ "送来的" + flower.flower_num + "朵" + flower.flower_type);
+            }
+        }
+
+        const pe = {
+            name: '胖鹅',
+            //代理模式
+            hometown: '宜春',
+            //接口
+            receiveFlower: function(sender,flower){
+                if(sender.name == '周轩任'){
+                    // console.log('男神，我们在一起吧');
+                    console.log('胖鹅，请帮我转送给潇潇');
+                    xx.receiveFlower(zxr,flower);
+                }else{
+                    console.log('收到了花');
+                }
+            }
+        }
+
+        zxr.sendFlower(pe);
+        //高级代码
+
+    </script>
+</body>
+</html>
