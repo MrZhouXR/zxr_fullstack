@@ -62,6 +62,8 @@ export default {
         if (res.data.code == '8000') {
            sessionStorage.setItem('userinfo', JSON.stringify(res.data.data) )
           this.$router.push('/starLogin')
+        } else {
+          this.$toast(res.data.msg)
         }
       }).catch(err => {
         console.log(err);

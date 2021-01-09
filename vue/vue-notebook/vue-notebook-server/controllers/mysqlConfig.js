@@ -38,10 +38,11 @@ let userLogin = function(username, userpwd) {
 }
 
 // 注册
-let userRegister = function(username, userpwd, nickname ) {
+let userRegister = function(value) {
 
-  let _sql = `insert into users(username,userpwd,nickname) values('${username}','${userpwd}','${nickname}')`
-  return allServices.query(_sql)
+  // let _sql = `insert into users(username,userpwd,nickname) values('${username}','${userpwd}','${nickname}')`
+  let _sql = `insert into users set username=?,userpwd=?,nickname=?;`
+  return allServices.query(_sql,value)
 
 }
 
@@ -52,10 +53,32 @@ let checkRegister = function(username) {
   return allServices.query(hasUSer)
 }
 
+// 查询笔记类型，返回所有匹配的文章
+let findNote = function(note_type) {
+  let _sql = `select * from note where note_type='${note_type}'`
+  return allServices.query(_sql)
+}
+
+// 根据文章 id 查询，返回该文章内容
+let findNoteDetail = function(id) {
+  let _sql = `select * from note where id='${id}'`
+  return allServices.query(_sql)
+}
+
+// 插入一条增加笔记的数据到数据库
+let insertNote = function(value) {
+  let _sql = `insert into note set useId=?,title=?,note_type=?,note_content=?,c_time=?,head_img=?,nickname=?;`
+  return allServices.query(_sql,value)
+}
+
+
 
 module.exports = {
   userLogin,
   userRegister,
-  checkRegister
+  checkRegister,
+  findNote, 
+  findNoteDetail,
+  insertNote
 }
 

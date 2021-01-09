@@ -20,7 +20,39 @@ const routes = [
    meta: {
      title: 'register'
    }
- }
+ },
+  {
+    path: '/noteClass',
+    name: 'noteClass',
+    component: () => import('@/views/noteClass/noteClass'),
+    meta: {
+      title: 'noteClass'
+    }
+  },
+  {
+    path: '/noteList',
+    name: 'noteList',
+    component: () => import('@/views/noteList/noteList'),
+    meta: {
+      title: 'noteList'
+    }
+  },
+  {
+    path: '/noteDetail',
+    name: 'noteDetail',
+    component: () => import('@/views/noteDetail/noteDetail'),
+    meta: {
+      title: 'noteDetail'
+    }
+  },
+    {
+      path: '/noteEdit',
+      name: 'noteEdit',
+      component: () => import('@/views/noteEdit/noteEdit'),
+      meta: {
+        title: 'noteEdit'
+      }
+    }
 ]
 
 const router = new VueRouter({

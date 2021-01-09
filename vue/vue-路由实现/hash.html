@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li href="#/home">home</li>
+    <li href="#/about">about</li>
+  </ul>
+
+  <div id="routeView"></div>
+</body>
+<script>
+  let routeView = document.getElementById('routeView')
+
+  window.addEventListener('haschange', () => {
+    let hash = location.path
+    routeView.innerHTML = hash
+  })
+
+  window.addEventListener('DOMContentLoaded', () => {
+    if (!location.hash) {
+      location.hash = '/'
+    } else {
+      let hash = location.hash
+      routeView.innerHTML = hash
+    }
+  })
+</script>
+</html>

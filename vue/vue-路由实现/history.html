@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>
+      <a href="/home">home</a>
+    </li>
+    <li>
+      <a href="/about">about</a>
+    </li>
+  </ul>
+  <div id="routeView">
+
+  </div>
+</body>
+<script>
+  let routeView = document.getElementById('routeView')
+  window.addEventListener('DOMContentLoaded', onload)
+  window.addEventListener('popstate', () => {
+    routeView.innerHTML = location.pathname
+  })
+
+  function onload() {
+    routeView.innerHTML = location.pathname
+    let linkList = document.querySelectorAll('a[href]')
+    console.log(linkList);
+    linkList.forEach(el => el.addEventListener('click', (e) => {
+      e.preventDefault()
+      history.pushState(null, '', el.getAttribute('href'))
+    }))
+  }
+</script>
+</html>
