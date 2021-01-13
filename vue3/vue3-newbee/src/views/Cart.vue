@@ -2,7 +2,7 @@
   <div class="cart-box">
     <simple-header :name="'购物车'" :back="false"></simple-header>
     <!-- 列表 -->
-    <div class="cart-body">
+    <div class="cart-body" v-if="list.length">
       <van-checkbox-group v-model="result" @change="groupChange">
         <van-swipe-cell v-for="(item,index) in list" :key="index">
           <div class="good-item">
@@ -28,10 +28,10 @@
       </van-checkbox-group>
     </div>
     <!-- 合计 -->
-    <van-submit-bar v-if="true" class="submit-all" :price="total * 100" button-text="结算" @submit="onSubmit">
+    <van-submit-bar v-if="list.length" class="submit-all" :price="total * 100" button-text="结算" @submit="onSubmit">
       <van-checkbox v-model:checked="checkAll" @click="allCheck">全选</van-checkbox>
     </van-submit-bar>
-    <div class="empty" v-if="false">
+    <div class="empty" v-if="!list.length">
       <img class="empty-cart" src="//s.yezgea02.com/1604028375097/empty-car.png" alt="空购物车">
       <div class="title">购物车空空如也</div>
       <van-button round color="#1baeae" type="primary" @click="goTo" block>前往选购</van-button>
@@ -46,7 +46,7 @@ import { computed, onMounted, reactive, toRefs } from 'vue'
 import NavBar from "@/components/NavBar.vue";
 import { Toast } from 'vant';
 import { getCart, modifyCart, deleteCartItem } from '@/service/cart.js'
-
+import { useRouter } from 'vue-router'
 
 export default {
   components: {
@@ -143,12 +143,32 @@ export default {
       const { resultCode } = await deleteCartItem(goodId)
       if(resultCode === 200) {
         Toast.success('删除成功')
-        state.list.forEach((item,index) => {
-          if(item.cartItemId == goodId) {
-            state.list.splice(index,1)
-          }
+        // state.list.forEach((item,index) => {
+        //   if(item.cartItemId == goodId) {
+        //     state.list.splice(index,1)
+        //   }
+        // })
+        state.list = state.list.filter((item) => {
+          return item.cartItemId !== goodId
         })
       }
+    }
+
+    const router = useRouter()
+
+    // 前往选购
+    const goTo = () => {
+      router.push({ path: '/home' })
+    }
+
+    // 结算
+    const onSubmit = () => {
+      if(!state.result.length) {
+        Toast.fail('请选择商品进行结算')
+        return 
+      }
+      const params = JSON.stringify(state.result)
+      router.push({ path: '/create-order', query: {cartItemId: params} })
     }
 
     return {
@@ -157,7 +177,9 @@ export default {
       total,
       groupChange,
       numChange,
-      deleteGood
+      deleteGood,
+      goTo,
+      onSubmit
     }
   }
 
