@@ -7,3 +7,7 @@ export function createOrder(params) {
 export function payOrder(params) {
   return axios.get('/paySuccess', {params})
 }
+
+export function getOrderList(params) {
+  return axios.get('/order', { params })
+}

@@ -19,12 +19,21 @@ export default {
     back: {
       type: Boolean,
       default: true
+    },
+    backUrl: {
+      type: String,
+      default: ''
     }
   },
   setup(props) {
     let router = useRouter()
     const goback = () => {
-      router.go(-1)
+      if(props.backUrl) {
+        router.push({path: props.backUrl })
+      } else {
+        router.go(-1)
+
+      }
     }
 
     return {
