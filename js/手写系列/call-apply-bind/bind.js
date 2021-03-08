@@ -3,8 +3,8 @@ let b = {
 }
 function a(e, r) {
   this.sex = '1'
-  console.log(e + r);
-  console.log(this.name);
+  console.log(e + r ); // 7
+  console.log(this.name ); // undefined
 }
 
 Function.prototype.mybind = function(thisArg) {
@@ -13,6 +13,7 @@ Function.prototype.mybind = function(thisArg) {
   }
   const args = [...arguments].slice(1)
   thisArg = thisArg || window
+  console.log(thisArg );// {name: 'sss'}
   const self = this
   const nop = function() {}
   // 绑定函数
@@ -30,6 +31,7 @@ Function.prototype.mybind = function(thisArg) {
 
 }
 
+
 let res = a.mybind(b,3,4)
 let arr = new res()
-console.log(arr);
+console.log(arr ); // a { sex: '1'}

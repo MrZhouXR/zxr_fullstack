@@ -9,3 +9,25 @@ let deepCopy = function(obj) {
   }
   return newObj
 }
+
+// 深拷贝优化： 优化循环引用
+let isObject = (target) => {
+  return (typeof target == 'object' || typeof target == 'function') && target !== null
+}
+
+const deepClone = (target, map = new WeakMap()) => {
+  if(map.get(target)) {
+    return target
+  }
+  if(isObject(target)) {
+    map.set(target,true)
+    let cloneDeep = Array.isArray(target) ? [] : {}
+    for(let prop in target) {
+      if(target.hasOwnProperty(prop)) {
+        cloneDeep[prop]  = deepClone(target[prop])
+      }
+    }
+    return cloneDeep
+  }
+  return target
+}
