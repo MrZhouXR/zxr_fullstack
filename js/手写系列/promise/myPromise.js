@@ -42,8 +42,8 @@ function myPromise(fn) {
 
 myPromise.prototype.then = function (onFulfilled, onRejected) {
   const that = this
-  onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : v => v
-  onRejected = typeof onFulfilled === 'function' ? onRejected : r => { throw r }
+  onFulfilled = typeof onFulfilled === 'function' ? onFulfilled = v => v : null
+  onRejected = typeof onFulfilled === 'function' ? onRejected = r => { throw r } : null
 
   if (that.state === PENDING) {
     that.resolvedCallbacks.push(onFulfilled)
